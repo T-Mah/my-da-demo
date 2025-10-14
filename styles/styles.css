@@ -86,6 +86,9 @@ body.appear {
   display: block;
 }
 
+body.dark {
+  color: #C8C8C8;
+}
 header {
   height: var(--header-height);
 }
