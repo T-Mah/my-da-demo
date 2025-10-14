@@ -87,7 +87,7 @@ body.appear {
 }
 
 body.dark {
-  color: #C8C8C8;
+  background-color: #C8C8C8;
 }
 header {
   height: var(--header-height);
