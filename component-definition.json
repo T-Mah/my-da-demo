@@ -159,6 +159,17 @@
           }
         },
         {
+          "title": "My Quote",
+          "id": "my-quote",
+          "plugins": {
+            "da": {
+              "name": "my-quote",
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
           "title": "Quote",
           "id": "quote",
           "plugins": {
