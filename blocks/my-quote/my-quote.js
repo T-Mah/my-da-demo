@@ -1,7 +1,7 @@
 export default async function decorate(block) {
     const [quotation, quoteAuthor] = [...block.children].map((c) => c.firstElementChild);
     const quoteblock = document.createElement('quoteblock');
-    block.classList.add(`my-quote-${quotes.length}`);
+    //block.classList.add(`my-quote-${quotes.length}`);
 
     quotation.className = 'my-quote-quotation';
     quoteblock.append(quotation);
