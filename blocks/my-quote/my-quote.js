@@ -17,5 +17,5 @@ export default async function decorate(block) {
     });
   }
   block.innerHTML = '';
-  block.append(quoteAuthor);
+  block.append(quoteblock);
 }
