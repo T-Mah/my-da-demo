@@ -1,0 +1,7 @@
+.my-quote blockquote .my-quote-quotation > :first-child::before {
+  content: "“";
+}
+
+.my-quote blockquote .my-quote-quotation > :last-child::after {
+  content: "”";
+}
