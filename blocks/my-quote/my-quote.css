@@ -6,7 +6,7 @@
   content: "”";
 }
 
-.quote quoteblock .my-quote-attribution > :first-child::before {
+.my-quote quoteblock .my-quote-attribution > :first-child::before {
   content: "—";
   padding-right: 0.5ch;
 }
