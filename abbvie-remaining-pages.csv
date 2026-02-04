@@ -1,0 +1,136 @@
+Phase,Site,Section,Page Name,URL Path,Template Type,Language,Priority,Est. Complexity,Notes
+Pilot,news.abbvie.com,News Home,News Center Home,/,news-landing,en-US,P0,Medium,Main news landing page
+Pilot,news.abbvie.com,Press Releases,Press Release Listing,/press-releases,listing,en-US,P0,Medium,Filterable press release archive
+Pilot,news.abbvie.com,Press Releases,Press Release Template,[date]/[slug],article,en-US,P0,Medium,~2500+ press releases (templated)
+Pilot,news.abbvie.com,Press Releases,Press Release Category - Corporate,/press-releases/corporate,listing,en-US,P1,Low,Filtered by category
+Pilot,news.abbvie.com,Press Releases,Press Release Category - Financial,/press-releases/financial,listing,en-US,P1,Low,Filtered by category
+Pilot,news.abbvie.com,Press Releases,Press Release Category - Product,/press-releases/product,listing,en-US,P1,Low,Filtered by category
+Pilot,news.abbvie.com,Press Releases,Press Release Category - Research,/press-releases/research,listing,en-US,P1,Low,Filtered by category
+Pilot,news.abbvie.com,Media Resources,Media Resources Landing,/media-resources,content,en-US,P1,Medium,Press kit and assets
+Pilot,news.abbvie.com,Media Resources,Company Logos,/media-resources/logos,download,en-US,P2,Low,Logo asset downloads
+Pilot,news.abbvie.com,Media Resources,Executive Photos,/media-resources/photos,gallery,en-US,P2,Low,Photo gallery
+Pilot,news.abbvie.com,Media Resources,B-Roll Video,/media-resources/video,gallery,en-US,P2,Medium,Video assets
+Pilot,news.abbvie.com,Media Resources,Fact Sheets,/media-resources/fact-sheets,download,en-US,P2,Low,PDF downloads
+Pilot,news.abbvie.com,Media Contacts,Media Contacts,/media-contacts,content,en-US,P1,Low,PR contact information
+Pilot,news.abbvie.com,Search,News Search,/search,search,en-US,P1,Medium,News-specific search
+Pilot,news.abbvie.com,RSS,RSS Feeds,/rss,utility,en-US,P2,Low,RSS feed page
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,en-US,P0,Medium,Main careers landing
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,de-DE,P1,Medium,German localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,fr-FR,P1,Medium,French localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,es-ES,P1,Medium,Spanish localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,it-IT,P1,Medium,Italian localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,pt-BR,P1,Medium,Portuguese (Brazil) localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,ja-JP,P1,Medium,Japanese localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,zh-CN,P1,Medium,Chinese (Simplified) localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,ko-KR,P1,Medium,Korean localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,ru-RU,P2,Medium,Russian localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,pl-PL,P2,Medium,Polish localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,nl-NL,P2,Medium,Dutch localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,tr-TR,P2,Medium,Turkish localization
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,ar-SA,P2,High,Arabic localization (RTL)
+Phase 2,careers.abbvie.com,Careers Home,Careers Home,/,careers-landing,he-IL,P2,High,Hebrew localization (RTL)
+Phase 2,careers.abbvie.com,Life at AbbVie,Life at AbbVie,/life-at-abbvie,content,en-US,P0,Medium,Culture overview
+Phase 2,careers.abbvie.com,Life at AbbVie,Our Culture,/life-at-abbvie/culture,content,en-US,P1,Low,Culture details
+Phase 2,careers.abbvie.com,Life at AbbVie,Employee Stories,/life-at-abbvie/stories,listing,en-US,P1,Medium,Employee testimonials
+Phase 2,careers.abbvie.com,Life at AbbVie,Employee Story Template,/life-at-abbvie/stories/[slug],article,en-US,P1,Medium,Individual story (~20 stories)
+Phase 2,careers.abbvie.com,Benefits,Benefits Overview,/benefits,content,en-US,P0,Medium,Benefits landing
+Phase 2,careers.abbvie.com,Benefits,Health & Wellness,/benefits/health-wellness,content,en-US,P1,Low,Health benefits
+Phase 2,careers.abbvie.com,Benefits,Financial Benefits,/benefits/financial,content,en-US,P1,Low,Financial benefits
+Phase 2,careers.abbvie.com,Benefits,Time Off,/benefits/time-off,content,en-US,P1,Low,PTO and leave
+Phase 2,careers.abbvie.com,Benefits,Family Benefits,/benefits/family,content,en-US,P1,Low,Family support
+Phase 2,careers.abbvie.com,Benefits,Professional Development,/benefits/development,content,en-US,P1,Low,Learning and growth
+Phase 2,careers.abbvie.com,Diversity,Diversity & Inclusion,/diversity-inclusion,content,en-US,P0,Medium,D&I overview
+Phase 2,careers.abbvie.com,Diversity,Employee Resource Groups,/diversity-inclusion/ergs,listing,en-US,P1,Medium,ERG listing
+Phase 2,careers.abbvie.com,Diversity,ERG Detail Template,/diversity-inclusion/ergs/[slug],content,en-US,P2,Low,Individual ERG (~10 ERGs)
+Phase 2,careers.abbvie.com,Career Areas,Career Areas Overview,/career-areas,listing,en-US,P0,Medium,Job categories
+Phase 2,careers.abbvie.com,Career Areas,Research & Development,/career-areas/research-development,content,en-US,P1,Medium,R&D careers
+Phase 2,careers.abbvie.com,Career Areas,Commercial,/career-areas/commercial,content,en-US,P1,Medium,Sales/marketing careers
+Phase 2,careers.abbvie.com,Career Areas,Manufacturing & Operations,/career-areas/manufacturing,content,en-US,P1,Medium,Ops careers
+Phase 2,careers.abbvie.com,Career Areas,Quality,/career-areas/quality,content,en-US,P1,Medium,Quality careers
+Phase 2,careers.abbvie.com,Career Areas,IT & Digital,/career-areas/it-digital,content,en-US,P1,Medium,Tech careers
+Phase 2,careers.abbvie.com,Career Areas,Finance,/career-areas/finance,content,en-US,P1,Medium,Finance careers
+Phase 2,careers.abbvie.com,Career Areas,Legal,/career-areas/legal,content,en-US,P1,Medium,Legal careers
+Phase 2,careers.abbvie.com,Career Areas,Human Resources,/career-areas/hr,content,en-US,P1,Medium,HR careers
+Phase 2,careers.abbvie.com,Students,Students & Early Career,/students,content,en-US,P0,Medium,Early career programs
+Phase 2,careers.abbvie.com,Students,Internships,/students/internships,content,en-US,P1,Medium,Internship program
+Phase 2,careers.abbvie.com,Students,Co-ops,/students/co-ops,content,en-US,P1,Medium,Co-op program
+Phase 2,careers.abbvie.com,Students,Leadership Development,/students/leadership-development,content,en-US,P1,Medium,LDP program
+Phase 2,careers.abbvie.com,Students,PhD Programs,/students/phd-programs,content,en-US,P1,Medium,PhD opportunities
+Phase 2,careers.abbvie.com,Locations,Our Locations,/locations,map,en-US,P1,High,Interactive location map
+Phase 2,careers.abbvie.com,Locations,Location Detail Template,/locations/[city],content,en-US,P2,Medium,Individual location (~30 locations)
+Phase 2,careers.abbvie.com,Job Search,Search Jobs,/search-jobs,integration,en-US,P0,High,Job search integration
+Phase 2,careers.abbvie.com,Job Search,Job Detail Template,/jobs/[id],job-detail,en-US,P0,High,Individual job posting (dynamic)
+Phase 2,careers.abbvie.com,Utility,Privacy Policy,/privacy,legal,en-US,P1,Low,Privacy policy
+Phase 2,careers.abbvie.com,Utility,Terms of Use,/terms,legal,en-US,P1,Low,Terms
+Phase 2,careers.abbvie.com,Utility,Accessibility,/accessibility,legal,en-US,P1,Low,Accessibility statement
+Phase 3,investors.abbvie.com,IR Home,Investor Relations Home,/,ir-landing,en-US,P0,High,Main IR landing page
+Phase 3,investors.abbvie.com,Stock Info,Stock Information,/stock-information,content,en-US,P0,High,Stock price and data
+Phase 3,investors.abbvie.com,Stock Info,Stock Quote,/stock-information/quote,integration,en-US,P0,High,Real-time stock data
+Phase 3,investors.abbvie.com,Stock Info,Historical Stock Data,/stock-information/historical,integration,en-US,P1,High,Historical charts
+Phase 3,investors.abbvie.com,Stock Info,Dividend Information,/stock-information/dividends,content,en-US,P1,Medium,Dividend history
+Phase 3,investors.abbvie.com,Stock Info,Analyst Coverage,/stock-information/analysts,listing,en-US,P1,Medium,Analyst list
+Phase 3,investors.abbvie.com,Stock Info,Investment Calculator,/stock-information/calculator,interactive,en-US,P2,High,Investment calculator tool
+Phase 3,investors.abbvie.com,Financial Info,Financial Information,/financial-information,content,en-US,P0,Medium,Financial overview
+Phase 3,investors.abbvie.com,Financial Info,Quarterly Results,/financial-information/quarterly-results,listing,en-US,P0,High,Quarterly earnings archive
+Phase 3,investors.abbvie.com,Financial Info,Annual Reports,/financial-information/annual-reports,listing,en-US,P0,Medium,Annual report archive
+Phase 3,investors.abbvie.com,Financial Info,SEC Filings,/financial-information/sec-filings,integration,en-US,P0,High,SEC EDGAR integration
+Phase 3,investors.abbvie.com,Financial Info,Financial Fact Sheet,/financial-information/fact-sheet,content,en-US,P1,Low,Financial summary
+Phase 3,investors.abbvie.com,Events,Events & Presentations,/events-presentations,listing,en-US,P0,Medium,Events calendar
+Phase 3,investors.abbvie.com,Events,Event Detail Template,/events-presentations/[slug],event,en-US,P1,Medium,Individual event page
+Phase 3,investors.abbvie.com,Events,Webcasts,/events-presentations/webcasts,listing,en-US,P1,Medium,Webcast archive
+Phase 3,investors.abbvie.com,Events,Investor Day,/events-presentations/investor-day,content,en-US,P1,Medium,Annual investor day
+Phase 3,investors.abbvie.com,News,Investor News,/news,listing,en-US,P0,Medium,IR-specific news
+Phase 3,investors.abbvie.com,News,Press Release Archive,/news/press-releases,listing,en-US,P1,Medium,Financial press releases
+Phase 3,investors.abbvie.com,Governance,Corporate Governance,/corporate-governance,content,en-US,P0,Medium,Governance overview
+Phase 3,investors.abbvie.com,Governance,Board of Directors,/corporate-governance/board,listing,en-US,P1,Medium,Board member profiles
+Phase 3,investors.abbvie.com,Governance,Board Member Template,/corporate-governance/board/[name],profile,en-US,P1,Low,Individual board bio (~12)
+Phase 3,investors.abbvie.com,Governance,Committee Composition,/corporate-governance/committees,content,en-US,P1,Medium,Committee details
+Phase 3,investors.abbvie.com,Governance,Governance Documents,/corporate-governance/documents,download,en-US,P1,Low,Governance PDFs
+Phase 3,investors.abbvie.com,Governance,Executive Compensation,/corporate-governance/compensation,content,en-US,P1,Medium,Compensation overview
+Phase 3,investors.abbvie.com,Resources,Investor Resources,/resources,content,en-US,P1,Medium,Resource landing
+Phase 3,investors.abbvie.com,Resources,Shareholder Services,/resources/shareholder-services,content,en-US,P1,Low,Shareholder info
+Phase 3,investors.abbvie.com,Resources,FAQ,/resources/faq,accordion,en-US,P2,Low,Investor FAQ
+Phase 3,investors.abbvie.com,Resources,Contact IR,/resources/contact,form,en-US,P1,Medium,IR contact form
+Phase 3,investors.abbvie.com,Resources,Email Alerts,/resources/email-alerts,form,en-US,P1,Medium,Alert signup
+Phase 3,investors.abbvie.com,ESG,ESG Overview,/esg,content,en-US,P1,Medium,ESG for investors
+Phase 3,investors.abbvie.com,ESG,ESG Reports,/esg/reports,download,en-US,P1,Low,ESG report archive
+Phase 3,investors.abbvie.com,Utility,Privacy Policy,/privacy,legal,en-US,P2,Low,Privacy policy
+Phase 3,investors.abbvie.com,Utility,Terms of Use,/terms,legal,en-US,P2,Low,Terms
+Phase 4,abbvie.com (Global),All Sections,German Site,/de-de/*,all-templates,de-DE,P1,Medium,~350 pages - German
+Phase 4,abbvie.com (Global),All Sections,French Site,/fr-fr/*,all-templates,fr-FR,P1,Medium,~350 pages - French
+Phase 4,abbvie.com (Global),All Sections,Spanish Site,/es-es/*,all-templates,es-ES,P1,Medium,~350 pages - Spanish (Spain)
+Phase 4,abbvie.com (Global),All Sections,Italian Site,/it-it/*,all-templates,it-IT,P1,Medium,~350 pages - Italian
+Phase 4,abbvie.com (Global),All Sections,Portuguese (Brazil) Site,/pt-br/*,all-templates,pt-BR,P1,Medium,~350 pages - Portuguese (Brazil)
+Phase 4,abbvie.com (Global),All Sections,Japanese Site,/ja-jp/*,all-templates,ja-JP,P1,High,~350 pages - Japanese
+Phase 4,abbvie.com (Global),All Sections,Chinese (Simplified) Site,/zh-cn/*,all-templates,zh-CN,P1,High,~350 pages - Chinese (Simplified)
+Phase 4,abbvie.com (Global),All Sections,Korean Site,/ko-kr/*,all-templates,ko-KR,P1,High,~350 pages - Korean
+Phase 4,abbvie.com (Global),All Sections,Russian Site,/ru-ru/*,all-templates,ru-RU,P2,Medium,~350 pages - Russian
+Phase 4,abbvie.com (Global),All Sections,Polish Site,/pl-pl/*,all-templates,pl-PL,P2,Medium,~350 pages - Polish
+Phase 4,abbvie.com (Global),All Sections,Dutch Site,/nl-nl/*,all-templates,nl-NL,P2,Medium,~350 pages - Dutch
+Phase 4,abbvie.com (Global),All Sections,Turkish Site,/tr-tr/*,all-templates,tr-TR,P2,Medium,~350 pages - Turkish
+Phase 4,abbvie.com (Global),All Sections,Arabic Site,/ar-sa/*,all-templates,ar-SA,P2,High,~350 pages - Arabic (RTL support)
+Phase 4,abbvie.com (Global),All Sections,Hebrew Site,/he-il/*,all-templates,he-IL,P2,High,~350 pages - Hebrew (RTL support)
+Phase 4,abbvie.com (Global),All Sections,Czech Site,/cs-cz/*,all-templates,cs-CZ,P2,Medium,~350 pages - Czech
+Phase 4,abbvie.com (Global),All Sections,Hungarian Site,/hu-hu/*,all-templates,hu-HU,P2,Medium,~350 pages - Hungarian
+Phase 4,abbvie.com (Global),All Sections,Greek Site,/el-gr/*,all-templates,el-GR,P2,Medium,~350 pages - Greek
+Phase 4,abbvie.com (Global),All Sections,Swedish Site,/sv-se/*,all-templates,sv-SE,P2,Medium,~350 pages - Swedish
+Phase 4,abbvie.com (Global),All Sections,Norwegian Site,/nb-no/*,all-templates,nb-NO,P2,Medium,~350 pages - Norwegian
+Phase 4,abbvie.com (Global),All Sections,Danish Site,/da-dk/*,all-templates,da-DK,P2,Medium,~350 pages - Danish
+Phase 4,abbvie.com (Global),All Sections,Finnish Site,/fi-fi/*,all-templates,fi-FI,P2,Medium,~350 pages - Finnish
+Phase 4,abbvie.com (Global),All Sections,Thai Site,/th-th/*,all-templates,th-TH,P2,High,~350 pages - Thai
+Phase 4,abbvie.com (Global),All Sections,Vietnamese Site,/vi-vn/*,all-templates,vi-VN,P2,Medium,~350 pages - Vietnamese
+Phase 4,abbvie.com (Global),All Sections,Indonesian Site,/id-id/*,all-templates,id-ID,P2,Medium,~350 pages - Indonesian
+Phase 4,abbvie.com (Global),All Sections,Malaysian Site,/ms-my/*,all-templates,ms-MY,P2,Medium,~350 pages - Malay
+Phase 4,abbvie.com (Global),All Sections,Philippines Site,/en-ph/*,all-templates,en-PH,P2,Low,~350 pages - English (Philippines)
+Phase 4,abbvie.com (Global),All Sections,Singapore Site,/en-sg/*,all-templates,en-SG,P2,Low,~350 pages - English (Singapore)
+Phase 4,abbvie.com (Global),All Sections,Hong Kong Site,/zh-hk/*,all-templates,zh-HK,P2,High,~350 pages - Chinese (Traditional)
+Phase 4,abbvie.com (Global),All Sections,Taiwan Site,/zh-tw/*,all-templates,zh-TW,P2,High,~350 pages - Chinese (Traditional)
+Phase 4,abbvie.com (Global),All Sections,India Site,/en-in/*,all-templates,en-IN,P2,Low,~350 pages - English (India)
+Phase 4,abbvie.com (Global),All Sections,Australia Site,/en-au/*,all-templates,en-AU,P2,Low,~350 pages - English (Australia)
+Phase 4,abbvie.com (Global),All Sections,UK Site,/en-gb/*,all-templates,en-GB,P1,Low,~350 pages - English (UK)
+Phase 4,abbvie.com (Global),All Sections,Canada English Site,/en-ca/*,all-templates,en-CA,P1,Low,~350 pages - English (Canada)
+Phase 4,abbvie.com (Global),All Sections,Canada French Site,/fr-ca/*,all-templates,fr-CA,P1,Medium,~350 pages - French (Canada)
+Phase 4,abbvie.com (Global),All Sections,Mexico Site,/es-mx/*,all-templates,es-MX,P1,Medium,~350 pages - Spanish (Mexico)
+Phase 4,abbvie.com (Global),All Sections,Argentina Site,/es-ar/*,all-templates,es-AR,P2,Medium,~350 pages - Spanish (Argentina)
+Phase 4,abbvie.com (Global),All Sections,Colombia Site,/es-co/*,all-templates,es-CO,P2,Medium,~350 pages - Spanish (Colombia)
+Phase 4,abbvie.com (Global),All Sections,Chile Site,/es-cl/*,all-templates,es-CL,P2,Medium,~350 pages - Spanish (Chile)
