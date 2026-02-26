@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbbVie.com Page Migration Order</title>
+  <style>
+    :root {
+      --color-primary: #071d49;
+      --color-accent: #0d6efd;
+      --color-success: #198754;
+      --color-warning: #fd7e14;
+      --color-light-bg: #f8f9fa;
+      --color-border: #dee2e6;
+      --color-text: #212529;
+      --color-text-muted: #6c757d;
+      --color-bulk: #6f42c1;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--color-text);
+      line-height: 1.5;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: var(--color-primary);
+      border-bottom: 3px solid var(--color-primary);
+      padding-bottom: 12px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: var(--color-primary);
+      margin-top: 32px;
+      margin-bottom: 14px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 18px;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: left;
+      padding: 8px 12px;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    thead th.num { width: 40px; text-align: center; }
+    thead th.rationale { width: 40%; }
+
+    tbody td {
+      padding: 6px 12px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tbody td.num { text-align: center; color: var(--color-text-muted); font-weight: 600; }
+
+    tbody tr:nth-child(even) { background: var(--color-light-bg); }
+
+    tbody td code {
+      font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+      font-size: 12px;
+      color: var(--color-primary);
+      background: #e8f0fe;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .wave-banner {
+      background: linear-gradient(135deg, var(--color-accent), #4a9eff);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 5px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wave-banner .meta {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .wave-banner.mvp {
+      background: linear-gradient(135deg, var(--color-success), #28a745);
+    }
+
+    .wave-banner.bulk {
+      background: linear-gradient(135deg, var(--color-bulk), #8b5cf6);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+    }
+
+    .badge-mvp { background: var(--color-success); color: #fff; }
+    .badge-bulk { background: var(--color-bulk); color: #fff; }
+    .badge-manual { background: var(--color-accent); color: #fff; }
+
+    .summary-box {
+      background: var(--color-light-bg);
+      border: 2px solid var(--color-primary);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 28px 0;
+    }
+
+    .summary-box h2 {
+      margin-top: 0;
+      border-bottom-color: var(--color-primary);
+    }
+
+    .summary-box table thead th {
+      background: var(--color-primary);
+    }
+
+    .summary-box table { margin-bottom: 0; }
+
+    .highlight-row td {
+      background: #d4edda !important;
+      font-weight: 600;
+    }
+
+    .notes {
+      margin-top: 24px;
+      font-size: 13px;
+    }
+
+    .notes h3 {
+      font-size: 15px;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .notes ul {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+
+    .notes li { margin-bottom: 4px; }
+
+    .section-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .page-break { page-break-before: always; }
+
+    @media print {
+      body { padding: 16px; font-size: 11px; }
+      h1 { font-size: 20px; }
+      h2 { font-size: 16px; }
+      table { font-size: 10px; }
+      tbody td { padding: 4px 8px; }
+      thead th { padding: 6px 8px; }
+      .wave-banner { padding: 8px 12px; font-size: 13px; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AbbVie.com &mdash; Page Migration Order</h1>
+  <p class="subtitle">Complete page inventory with prioritized migration sequence &bull; ~229 pages &bull; abbvie.com (US domain only)</p>
+
+  <!-- SUMMARY -->
+  <div class="summary-box">
+    <h2>Summary by Wave</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Wave</th>
+          <th>Pages</th>
+          <th>Timeline</th>
+          <th>Approach</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>1 &mdash; MVP</strong></td>
+          <td>12</td>
+          <td>Month 2 Wk3 &ndash; Month 3 Wk1</td>
+          <td><span class="badge badge-mvp">MVP</span> Manual (defines block patterns)</td>
+        </tr>
+        <tr>
+          <td><strong>2 &mdash; Who We Are</strong></td>
+          <td>12</td>
+          <td>Month 3, Wk 1&ndash;2</td>
+          <td><span class="badge badge-manual">Manual</span> Leveraging Wave 1 blocks</td>
+        </tr>
+        <tr>
+          <td><strong>3 &mdash; Science</strong></td>
+          <td>30</td>
+          <td>Month 3, Wk 2&ndash;3</td>
+          <td><span class="badge badge-manual">Manual</span> + semi-batch for sub-sections</td>
+        </tr>
+        <tr>
+          <td><strong>4 &mdash; Patients &amp; Join Us</strong></td>
+          <td>17</td>
+          <td>Month 3 Wk3 &ndash; Month 4 Wk1</td>
+          <td><span class="badge badge-manual">Manual</span> Reusing established patterns</td>
+        </tr>
+        <tr>
+          <td><strong>5 &mdash; Sustainability</strong></td>
+          <td>12</td>
+          <td>Month 4, Wk 1</td>
+          <td><span class="badge badge-manual">Manual</span> Reusing patterns</td>
+        </tr>
+        <tr>
+          <td><strong>6 &mdash; Utility Pages</strong></td>
+          <td>4</td>
+          <td>Month 4, Wk 1&ndash;2</td>
+          <td><span class="badge badge-manual">Manual</span> Simple pages</td>
+        </tr>
+        <tr>
+          <td><strong>7 &mdash; Contact Locations</strong></td>
+          <td>15</td>
+          <td>Month 4, Wk 2</td>
+          <td><span class="badge badge-bulk">Bulk Import</span> Templatized</td>
+        </tr>
+        <tr>
+          <td><strong>8 &mdash; Stories: Index</strong></td>
+          <td>17</td>
+          <td>Month 4, Wk 2</td>
+          <td><span class="badge badge-manual">Manual</span> Index + category filters</td>
+        </tr>
+        <tr>
+          <td><strong>9 &mdash; Stories: Articles</strong></td>
+          <td>~110</td>
+          <td>Month 4, Wk 2&ndash;4</td>
+          <td><span class="badge badge-bulk">Bulk Import</span> Templatized articles</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>TOTAL</strong></td>
+          <td><strong>~229</strong></td>
+          <td><strong>Months 2&ndash;4</strong></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- WAVE 1 -->
+  <div class="wave-banner mvp">
+    <span>Wave 1 &mdash; MVP Pages</span>
+    <span class="meta">12 pages &bull; Month 2 Wk3 &ndash; Month 3 Wk1 &bull; Manual</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th><th class="rationale">Rationale</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">1</td><td><code>/</code> (Homepage)</td><td>Highest traffic; defines hero, cards, carousel, video, stats blocks</td></tr>
+      <tr><td class="num">2</td><td><code>/who-we-are.html</code></td><td>Top-level section landing; establishes section layout pattern</td></tr>
+      <tr><td class="num">3</td><td><code>/science.html</code></td><td>Top-level section landing</td></tr>
+      <tr><td class="num">4</td><td><code>/patients.html</code></td><td>Top-level section landing</td></tr>
+      <tr><td class="num">5</td><td><code>/join-us.html</code></td><td>Top-level section landing</td></tr>
+      <tr><td class="num">6</td><td><code>/sustainability.html</code></td><td>Top-level section landing</td></tr>
+      <tr><td class="num">7</td><td><code>/patients/products.html</code></td><td>High-traffic &ldquo;Popular page&rdquo; in footer</td></tr>
+      <tr><td class="num">8</td><td><code>/science/pipeline.html</code></td><td>High-traffic; likely data-heavy/interactive</td></tr>
+      <tr><td class="num">9</td><td><code>/patients/patient-support.html</code></td><td>High-traffic &ldquo;Popular page&rdquo;</td></tr>
+      <tr><td class="num">10</td><td><code>/science/partner-with-us.html</code></td><td>High-traffic &ldquo;Popular page&rdquo;</td></tr>
+      <tr><td class="num">11</td><td><code>/latest-earnings.html</code></td><td>Linked from homepage; investor visibility</td></tr>
+      <tr><td class="num">12</td><td><code>/contact-center.html</code></td><td>Essential utility page</td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 2 -->
+  <div class="wave-banner">
+    <span>Wave 2 &mdash; Who We Are Section</span>
+    <span class="meta">12 pages &bull; Month 3, Wk 1&ndash;2 &bull; Manual</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">13</td><td><code>/who-we-are/our-principles.html</code></td></tr>
+      <tr><td class="num">14</td><td><code>/who-we-are/our-principles/equity-equality-inclusion-diversity.html</code></td></tr>
+      <tr><td class="num">15</td><td><code>/who-we-are/our-principles/positions-views.html</code></td></tr>
+      <tr><td class="num">16</td><td><code>/who-we-are/operating-with-integrity.html</code></td></tr>
+      <tr><td class="num">17</td><td><code>/who-we-are/operating-with-integrity/abbvies-code-of-conduct.html</code></td></tr>
+      <tr><td class="num">18</td><td><code>/who-we-are/operating-with-integrity/protecting-human-rights-and-workplace-safety.html</code></td></tr>
+      <tr><td class="num">19</td><td><code>/who-we-are/operating-with-integrity/responsible-supply-chain.html</code></td></tr>
+      <tr><td class="num">20</td><td><code>/who-we-are/operating-with-integrity/transparency-in-payment.html</code></td></tr>
+      <tr><td class="num">21</td><td><code>/who-we-are/key-facts.html</code></td></tr>
+      <tr><td class="num">22</td><td><code>/who-we-are/our-leaders.html</code></td></tr>
+      <tr><td class="num">23</td><td><code>/who-we-are/policies-disclosures.html</code></td></tr>
+      <tr><td class="num">24</td><td><code>/who-we-are/access-to-investigational-drugs-policy.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 3 -->
+  <div class="wave-banner page-break">
+    <span>Wave 3 &mdash; Science Section</span>
+    <span class="meta">30 pages &bull; Month 3, Wk 2&ndash;3 &bull; Manual + semi-batch</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">25</td><td><code>/science/areas-of-focus.html</code></td></tr>
+      <tr><td class="num">26</td><td><code>/science/areas-of-focus/immunology.html</code></td></tr>
+      <tr><td class="num">27</td><td><code>/science/areas-of-focus/oncology.html</code></td></tr>
+      <tr><td class="num">28</td><td><code>/science/areas-of-focus/neuroscience.html</code></td></tr>
+      <tr><td class="num">29</td><td><code>/science/areas-of-focus/eye-care.html</code></td></tr>
+      <tr><td class="num">30</td><td><code>/science/areas-of-focus/aesthetics.html</code></td></tr>
+      <tr><td class="num">31</td><td><code>/science/areas-of-focus/other-specialties.html</code></td></tr>
+      <tr><td class="num">32</td><td><code>/science/areas-of-innovation.html</code></td></tr>
+      <tr><td class="num">33</td><td><code>/science/areas-of-innovation/ai-and-data-convergence.html</code></td></tr>
+      <tr><td class="num">34</td><td><code>/science/areas-of-innovation/genomics.html</code></td></tr>
+      <tr><td class="num">35</td><td><code>/science/areas-of-innovation/patient-focused-drug-development.html</code></td></tr>
+      <tr><td class="num">36</td><td><code>/science/areas-of-innovation/precision-medicine.html</code></td></tr>
+      <tr><td class="num">37</td><td><code>/science/areas-of-innovation/therapeutic-modalities-and-platforms.html</code></td></tr>
+      <tr><td class="num">38</td><td><code>/science/our-people.html</code></td></tr>
+      <tr><td class="num">39</td><td><code>/science/our-people/community-of-science.html</code></td></tr>
+      <tr><td class="num">40</td><td><code>/science/our-people/discovery-files.html</code></td></tr>
+      <tr><td class="num">41</td><td><code>/science/our-people/lab-of-the-future.html</code></td></tr>
+      <tr><td class="num">42</td><td><code>/science/our-people/our-rd-leaders.html</code></td></tr>
+      <tr><td class="num">43</td><td><code>/science/our-people/science-in-60-seconds.html</code></td></tr>
+      <tr><td class="num">44</td><td><code>/science/clinical-trials.html</code></td></tr>
+      <tr><td class="num">45</td><td><code>/science/clinical-trials/investigator-initiated-studies.html</code></td></tr>
+      <tr><td class="num">46</td><td><code>/science/publications.html</code></td></tr>
+      <tr><td class="num">47</td><td><code>/science/rd-sites.html</code></td></tr>
+      <tr><td class="num">48</td><td><code>/science/independent-educational-grants.html</code></td></tr>
+      <tr><td class="num">49</td><td><code>/science/independent-educational-grants/how-to-apply.html</code></td></tr>
+      <tr><td class="num">50</td><td><code>/science/independent-educational-grants/request-types.html</code></td></tr>
+      <tr><td class="num">51</td><td><code>/science/independent-educational-grants/requestor-training-guide.html</code></td></tr>
+      <tr><td class="num">52</td><td><code>/science/independent-educational-grants/grants-and-contribution-disclosures.html</code></td></tr>
+      <tr><td class="num">53</td><td><code>/science/partner-with-us/abbvie-ventures.html</code></td></tr>
+      <tr><td class="num">54</td><td><code>/science/partner-with-us/partnering-days.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 4 -->
+  <div class="wave-banner">
+    <span>Wave 4 &mdash; Patients &amp; Join Us</span>
+    <span class="meta">17 pages &bull; Month 3 Wk3 &ndash; Month 4 Wk1 &bull; Manual</span>
+  </div>
+  <p class="section-label">Patients</p>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">55</td><td><code>/patients/patient-support/patient-assistance.html</code></td></tr>
+      <tr><td class="num">56</td><td><code>/patients/product-quality-and-safety.html</code></td></tr>
+    </tbody>
+  </table>
+  <p class="section-label">Join Us</p>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">57</td><td><code>/join-us/opportunities.html</code></td></tr>
+      <tr><td class="num">58</td><td><code>/join-us/opportunities/research-and-development.html</code></td></tr>
+      <tr><td class="num">59</td><td><code>/join-us/opportunities/commercial.html</code></td></tr>
+      <tr><td class="num">60</td><td><code>/join-us/opportunities/corporate.html</code></td></tr>
+      <tr><td class="num">61</td><td><code>/join-us/opportunities/operations.html</code></td></tr>
+      <tr><td class="num">62</td><td><code>/join-us/opportunities/allergan-aesthetics.html</code></td></tr>
+      <tr><td class="num">63</td><td><code>/join-us/opportunities/student-programs.html</code></td></tr>
+      <tr><td class="num">64</td><td><code>/join-us/life-at-abbvie.html</code></td></tr>
+      <tr><td class="num">65</td><td><code>/join-us/life-at-abbvie/benefits.html</code></td></tr>
+      <tr><td class="num">66</td><td><code>/join-us/life-at-abbvie/employee-resource-groups.html</code></td></tr>
+      <tr><td class="num">67</td><td><code>/join-us/life-at-abbvie/learning-and-development.html</code></td></tr>
+      <tr><td class="num">68</td><td><code>/join-us/life-at-abbvie/well-being-in-the-workplace.html</code></td></tr>
+      <tr><td class="num">69</td><td><code>/join-us/postdoctoral-program.html</code></td></tr>
+      <tr><td class="num">70</td><td><code>/join-us/student-programs.html</code></td></tr>
+      <tr><td class="num">71</td><td><code>/join-us/why-abbvie.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 5 -->
+  <div class="wave-banner page-break">
+    <span>Wave 5 &mdash; Sustainability Section</span>
+    <span class="meta">12 pages &bull; Month 4, Wk 1 &bull; Manual</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">72</td><td><code>/sustainability/abbvie-foundation.html</code></td></tr>
+      <tr><td class="num">73</td><td><code>/sustainability/abbvie-foundation/addressing-systemic-barriers.html</code></td></tr>
+      <tr><td class="num">74</td><td><code>/sustainability/abbvie-foundation/innovative-impact.html</code></td></tr>
+      <tr><td class="num">75</td><td><code>/sustainability/disaster-relief.html</code></td></tr>
+      <tr><td class="num">76</td><td><code>/sustainability/environmental-social-and-governance.html</code></td></tr>
+      <tr><td class="num">77</td><td><code>/sustainability/environmental-social-and-governance/human-capital-management.html</code></td></tr>
+      <tr><td class="num">78</td><td><code>/sustainability/environmental-social-and-governance/environmental-sustainability.html</code></td></tr>
+      <tr><td class="num">79</td><td><code>/sustainability/environmental-social-and-governance/resources.html</code></td></tr>
+      <tr><td class="num">80</td><td><code>/sustainability/philanthropy.html</code></td></tr>
+      <tr><td class="num">81</td><td><code>/sustainability/philanthropy/philanthropic-programs.html</code></td></tr>
+      <tr><td class="num">82</td><td><code>/sustainability/philanthropy/employee-engagement.html</code></td></tr>
+      <tr><td class="num">83</td><td><code>/esg-report.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 6 -->
+  <div class="wave-banner">
+    <span>Wave 6 &mdash; Utility Pages</span>
+    <span class="meta">4 pages &bull; Month 4, Wk 1&ndash;2 &bull; Manual</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">84</td><td><code>/accessibility-statement.html</code></td></tr>
+      <tr><td class="num">85</td><td><code>/terms-of-use.html</code></td></tr>
+      <tr><td class="num">86</td><td><code>/site-map.html</code></td></tr>
+      <tr><td class="num">87</td><td><code>/landing/a-history-of-impact.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 7 -->
+  <div class="wave-banner bulk">
+    <span>Wave 7 &mdash; Contact Center Locations</span>
+    <span class="meta">15 pages &bull; Month 4, Wk 2 &bull; Bulk Import</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">88</td><td><code>/contact-center/locations/united-states.html</code></td></tr>
+      <tr><td class="num">89</td><td><code>/contact-center/locations/united-arab-emirates.html</code></td></tr>
+      <tr><td class="num">90</td><td><code>/contact-center/locations/saudi-arabia.html</code></td></tr>
+      <tr><td class="num">91</td><td><code>/contact-center/locations/south-africa-and-sub-saharan-africa.html</code></td></tr>
+      <tr><td class="num">92</td><td><code>/contact-center/locations/algeria.html</code></td></tr>
+      <tr><td class="num">93</td><td><code>/contact-center/locations/bosnia-and-herzegovina.html</code></td></tr>
+      <tr><td class="num">94</td><td><code>/contact-center/locations/croatia.html</code></td></tr>
+      <tr><td class="num">95</td><td><code>/contact-center/locations/estonia.html</code></td></tr>
+      <tr><td class="num">96</td><td><code>/contact-center/locations/latvia.html</code></td></tr>
+      <tr><td class="num">97</td><td><code>/contact-center/locations/lebanon.html</code></td></tr>
+      <tr><td class="num">98</td><td><code>/contact-center/locations/lithuania.html</code></td></tr>
+      <tr><td class="num">99</td><td><code>/contact-center/locations/romania.html</code></td></tr>
+      <tr><td class="num">100</td><td><code>/contact-center/locations/serbia.html</code></td></tr>
+      <tr><td class="num">101</td><td><code>/contact-center/locations/slovenia.html</code></td></tr>
+      <tr><td class="num">102</td><td><code>/contact-center/locations/tunisia.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 8 -->
+  <div class="wave-banner page-break">
+    <span>Wave 8 &mdash; Our Stories: Index &amp; Categories</span>
+    <span class="meta">17 pages &bull; Month 4, Wk 2 &bull; Manual</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">103</td><td><code>/who-we-are/our-stories.html</code> (index)</td></tr>
+      <tr><td class="num">104</td><td><code>/who-we-are/our-stories/science-stories.html</code></td></tr>
+      <tr><td class="num">105</td><td><code>/who-we-are/our-stories/oncology-stories.html</code></td></tr>
+      <tr><td class="num">106</td><td><code>/who-we-are/our-stories/immunology-stories.html</code></td></tr>
+      <tr><td class="num">107</td><td><code>/who-we-are/our-stories/neuroscience-stories.html</code></td></tr>
+      <tr><td class="num">108</td><td><code>/who-we-are/our-stories/eye-care-stories.html</code></td></tr>
+      <tr><td class="num">109</td><td><code>/who-we-are/our-stories/aesthetics-stories.html</code></td></tr>
+      <tr><td class="num">110</td><td><code>/who-we-are/our-stories/company-stories.html</code></td></tr>
+      <tr><td class="num">111</td><td><code>/who-we-are/our-stories/eedi-stories.html</code></td></tr>
+      <tr><td class="num">112</td><td><code>/who-we-are/our-stories/philanthropy-stories.html</code></td></tr>
+      <tr><td class="num">113</td><td><code>/who-we-are/our-stories/sustainability-stories.html</code></td></tr>
+      <tr><td class="num">114</td><td><code>/who-we-are/our-stories/serving-communities-stories.html</code></td></tr>
+      <tr><td class="num">115</td><td><code>/who-we-are/our-stories/working-at-abbvie-stories.html</code></td></tr>
+      <tr><td class="num">116</td><td><code>/who-we-are/our-stories/partnerships-stories.html</code></td></tr>
+      <tr><td class="num">117</td><td><code>/who-we-are/our-stories/patient-support-stories.html</code></td></tr>
+      <tr><td class="num">118</td><td><code>/who-we-are/our-stories/profile-stories.html</code></td></tr>
+      <tr><td class="num">119</td><td><code>/who-we-are/our-stories/virology-stories.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- WAVE 9 -->
+  <div class="wave-banner bulk">
+    <span>Wave 9 &mdash; Our Stories: Article Pages</span>
+    <span class="meta">~110 pages &bull; Month 4, Wk 2&ndash;4 &bull; Bulk Import</span>
+  </div>
+  <table>
+    <thead>
+      <tr><th class="num">#</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="num">120</td><td><code>/who-we-are/our-stories/5-ways-abbvie-work-to-deliver-medicines-in-half-the-time.html</code></td></tr>
+      <tr><td class="num">121</td><td><code>/who-we-are/our-stories/a-history-discovery-why-we-focus-on-eye-cares-toughest-diseases.html</code></td></tr>
+      <tr><td class="num">122</td><td><code>/who-we-are/our-stories/a-journey-of-sight-progress.html</code></td></tr>
+      <tr><td class="num">123</td><td><code>/who-we-are/our-stories/a-molecular-behavior-chart-speeding-up-research-with-predictive-analytics.html</code></td></tr>
+      <tr><td class="num">124</td><td><code>/who-we-are/our-stories/abbvie-rebuilds-north-chicagos-middle-school-inspiring-students-to-reach-higher.html</code></td></tr>
+      <tr><td class="num">125</td><td><code>/who-we-are/our-stories/abbvie-volunteers-return-to-serving.html</code></td></tr>
+      <tr><td class="num">126</td><td><code>/who-we-are/our-stories/abbvies-2024-working-parents-finding-purpose-in-adversity.html</code></td></tr>
+      <tr><td class="num">127</td><td><code>/who-we-are/our-stories/advancing-a-public-health-approach-to-patient-safety.html</code></td></tr>
+      <tr><td class="num">128</td><td><code>/who-we-are/our-stories/advice-from-scientist-turned-physician-turned-robot-builder-be-curious.html</code></td></tr>
+      <tr><td class="num">129</td><td><code>/who-we-are/our-stories/ambassadors-in-action.html</code></td></tr>
+      <tr><td class="num">130</td><td><code>/who-we-are/our-stories/an-innovative-approach-to-improve-maternal-health.html</code></td></tr>
+      <tr><td class="num">131</td><td><code>/who-we-are/our-stories/breaking-the-rules-of-science-to-treat-cancer.html</code></td></tr>
+      <tr><td class="num">132</td><td><code>/who-we-are/our-stories/btk-protein-good-bad-and-ugly.html</code></td></tr>
+      <tr><td class="num">133</td><td><code>/who-we-are/our-stories/can-unlocking-one-million-genomes.html</code></td></tr>
+      <tr><td class="num">134</td><td><code>/who-we-are/our-stories/can-we-find-cures-faster.html</code></td></tr>
+      <tr><td class="num">135</td><td><code>/who-we-are/our-stories/celebrating-abbvies-2025-working-parents-caregivers.html</code></td></tr>
+      <tr><td class="num">136</td><td><code>/who-we-are/our-stories/change-from-within.html</code></td></tr>
+      <tr><td class="num">137</td><td><code>/who-we-are/our-stories/chasing-the-value-of-a-walk-down-the-aisle.html</code></td></tr>
+      <tr><td class="num">138</td><td><code>/who-we-are/our-stories/chembeads-improving-artificial-intelligence-through-human-ingenuity.html</code></td></tr>
+      <tr><td class="num">139</td><td><code>/who-we-are/our-stories/childhood-cancer-patients-and-their-families-find-a-home-away-from-home.html</code></td></tr>
+      <tr><td class="num">140</td><td><code>/who-we-are/our-stories/connecting-patients-with-care-3-lessons-learned-during-covid-19.html</code></td></tr>
+      <tr><td class="num">141</td><td><code>/who-we-are/our-stories/day-in-life-government-affairs-director-educates-and-empowers.html</code></td></tr>
+      <tr><td class="num">142</td><td><code>/who-we-are/our-stories/day-in-life-meet-director-clearing-path-for-patient-access.html</code></td></tr>
+      <tr><td class="num">143</td><td><code>/who-we-are/our-stories/day-in-life-meet-engineer-promoting-diversity-within-manufacturing.html</code></td></tr>
+      <tr><td class="num">144</td><td><code>/who-we-are/our-stories/day-in-the-life-creating-impact-with-nonprofit-partners.html</code></td></tr>
+      <tr><td class="num">145</td><td><code>/who-we-are/our-stories/decoding-immune-systems-secrets-inside-the-discovery-of-a-new-medicine.html</code></td></tr>
+      <tr><td class="num">146</td><td><code>/who-we-are/our-stories/discovery-files-vision-for-blood-cancer-patients.html</code></td></tr>
+      <tr><td class="num">147</td><td><code>/who-we-are/our-stories/elevating-health-care-for-all.html</code></td></tr>
+      <tr><td class="num">148</td><td><code>/who-we-are/our-stories/empowering-innovation-through-the-abbvie-foundation-health-equit.html</code></td></tr>
+      <tr><td class="num">149</td><td><code>/who-we-are/our-stories/ensuring-patients-around-world-get-medicines-during-covid-19.html</code></td></tr>
+      <tr><td class="num">150</td><td><code>/who-we-are/our-stories/everyones-talking-about-data-science.html</code></td></tr>
+      <tr><td class="num">151</td><td><code>/who-we-are/our-stories/expert-insights-the-promise-of-genetic-medicine-and-abbvies-role-in-research.html</code></td></tr>
+      <tr><td class="num">152</td><td><code>/who-we-are/our-stories/finding-hope-in-a-pandemic--a-conversation-with-two-hepatitis-c-.html</code></td></tr>
+      <tr><td class="num">153</td><td><code>/who-we-are/our-stories/five-reasons-why-small-cell-lung-cancer-is-tough-to-treat.html</code></td></tr>
+      <tr><td class="num">154</td><td><code>/who-we-are/our-stories/going-inside-prison-walls-to-help-eliminate-hepatitis-c.html</code></td></tr>
+      <tr><td class="num">155</td><td><code>/who-we-are/our-stories/green-chemistry-cleaner-faster-chemical-reactions.html</code></td></tr>
+      <tr><td class="num">156</td><td><code>/who-we-are/our-stories/growing-sustainably-through-innovation-how-abbvie-takes-action.html</code></td></tr>
+      <tr><td class="num">157</td><td><code>/who-we-are/our-stories/hepatitis-c-mysterious-virus-that-met-its-match.html</code></td></tr>
+      <tr><td class="num">158</td><td><code>/who-we-are/our-stories/how-abbvie-is-bringing-antiviral-expertise-to-covid-19-battle.html</code></td></tr>
+      <tr><td class="num">159</td><td><code>/who-we-are/our-stories/how-abbvies-integrated-operations-help-prevent-drug-shortages.html</code></td></tr>
+      <tr><td class="num">160</td><td><code>/who-we-are/our-stories/how-employee-resource-groups-create-meaningful-impact-at-abbvie.html</code></td></tr>
+      <tr><td class="num">161</td><td><code>/who-we-are/our-stories/how-medicinal-chemists-are-creating-new-weapons-against-autoimmune-diseases.html</code></td></tr>
+      <tr><td class="num">162</td><td><code>/who-we-are/our-stories/how-patient-voices-are-changing-medicine.html</code></td></tr>
+      <tr><td class="num">163</td><td><code>/who-we-are/our-stories/how-the-parkinsons-disease-community-is-shaping-the-future.html</code></td></tr>
+      <tr><td class="num">164</td><td><code>/who-we-are/our-stories/how-uterine-fibroids-feel-to-patient-who-is-also-doctor.html</code></td></tr>
+      <tr><td class="num">165</td><td><code>/who-we-are/our-stories/immunologys-next-frontier.html</code></td></tr>
+      <tr><td class="num">166</td><td><code>/who-we-are/our-stories/injecting-hope-one-vaccine-at-a-time.html</code></td></tr>
+      <tr><td class="num">167</td><td><code>/who-we-are/our-stories/inside-dream-initiative.html</code></td></tr>
+      <tr><td class="num">168</td><td><code>/who-we-are/our-stories/lessons-from-a-lifelong-journey-with-psoriasis.html</code></td></tr>
+      <tr><td class="num">169</td><td><code>/who-we-are/our-stories/life-after-stroke-living-with-and-researching-spasticity.html</code></td></tr>
+      <tr><td class="num">170</td><td><code>/who-we-are/our-stories/little-patients-big-impact.html</code></td></tr>
+      <tr><td class="num">171</td><td><code>/who-we-are/our-stories/living-with-an-illness.html</code></td></tr>
+      <tr><td class="num">172</td><td><code>/who-we-are/our-stories/living-with-unknowns-alzheimers-disease.html</code></td></tr>
+      <tr><td class="num">173</td><td><code>/who-we-are/our-stories/magnified-featuring-darin-messina.html</code></td></tr>
+      <tr><td class="num">174</td><td><code>/who-we-are/our-stories/magnified-featuring-edrice-simmons.html</code></td></tr>
+      <tr><td class="num">175</td><td><code>/who-we-are/our-stories/magnified-featuring-johanna-corbin.html</code></td></tr>
+      <tr><td class="num">176</td><td><code>/who-we-are/our-stories/magnified-featuring-jonathon-sedgwick.html</code></td></tr>
+      <tr><td class="num">177</td><td><code>/who-we-are/our-stories/magnified-featuring-linda-scarazzini.html</code></td></tr>
+      <tr><td class="num">178</td><td><code>/who-we-are/our-stories/magnified-featuring-matt-widman.html</code></td></tr>
+      <tr><td class="num">179</td><td><code>/who-we-are/our-stories/magnified-featuring-nicholas-donoghoe.html</code></td></tr>
+      <tr><td class="num">180</td><td><code>/who-we-are/our-stories/magnified-featuring-sean-mcewen.html</code></td></tr>
+      <tr><td class="num">181</td><td><code>/who-we-are/our-stories/magnified-featuring-shuhong-zhang.html</code></td></tr>
+      <tr><td class="num">182</td><td><code>/who-we-are/our-stories/make-complicated-simple-inside-world-human-factors-engineers.html</code></td></tr>
+      <tr><td class="num">183</td><td><code>/who-we-are/our-stories/making-it-migraine-friendly-why-were-reimagining-workplace.html</code></td></tr>
+      <tr><td class="num">184</td><td><code>/who-we-are/our-stories/meet-the-arch-a-time-saving-tool-for-researchers-focused-on-finding-cures.html</code></td></tr>
+      <tr><td class="num">185</td><td><code>/who-we-are/our-stories/more-than-a-stiff-neck-the-impact-of-living-with-cervical-dyston.html</code></td></tr>
+      <tr><td class="num">186</td><td><code>/who-we-are/our-stories/more-than-skin-deep-3-lessons-for-expanding-equity-in-dermatology.html</code></td></tr>
+      <tr><td class="num">187</td><td><code>/who-we-are/our-stories/much-more-than-itchy-skin-breaking-down-complexities-atopic-dermatitis.html</code></td></tr>
+      <tr><td class="num">188</td><td><code>/who-we-are/our-stories/navigating-the-hidden-side-of-cancer.html</code></td></tr>
+      <tr><td class="num">189</td><td><code>/who-we-are/our-stories/navigating-ulcerative-colitis-as-a-child.html</code></td></tr>
+      <tr><td class="num">190</td><td><code>/who-we-are/our-stories/new-microsite-clinic-brings-healthcare-to-chicago-southwest-side.html</code></td></tr>
+      <tr><td class="num">191</td><td><code>/who-we-are/our-stories/not-good-enough-behind-the-drive-to-give-cancer-patients-more-time.html</code></td></tr>
+      <tr><td class="num">192</td><td><code>/who-we-are/our-stories/one-veterans-journey-and-abbvies-commitment-to-mental-health-research.html</code></td></tr>
+      <tr><td class="num">193</td><td><code>/who-we-are/our-stories/precision-medicine-its-not-just-for-oncology-anymore.html</code></td></tr>
+      <tr><td class="num">194</td><td><code>/who-we-are/our-stories/putting-our-people-first-abbvies-family-benefits.html</code></td></tr>
+      <tr><td class="num">195</td><td><code>/who-we-are/our-stories/ready-set-launch-abbvie-opens-new-facility-in-the-bay-area.html</code></td></tr>
+      <tr><td class="num">196</td><td><code>/who-we-are/our-stories/real-people-real-inspiration-joes-story.html</code></td></tr>
+      <tr><td class="num">197</td><td><code>/who-we-are/our-stories/real-world-data-rounds-out-value-picture-drugs.html</code></td></tr>
+      <tr><td class="num">198</td><td><code>/who-we-are/our-stories/real-world-evidence-uncovers-gaps-in-IBD-care.html</code></td></tr>
+      <tr><td class="num">199</td><td><code>/who-we-are/our-stories/rebuilding-puerto-rico-one-community-health-center-at-a-time.html</code></td></tr>
+      <tr><td class="num">200</td><td><code>/who-we-are/our-stories/recognizing-the-mental-health-impact-of-chronic-skin-disease.html</code></td></tr>
+      <tr><td class="num">201</td><td><code>/who-we-are/our-stories/resilient-reality-the-emotional-toll-of-ovarian-cancer.html</code></td></tr>
+      <tr><td class="num">202</td><td><code>/who-we-are/our-stories/sharpening-focus-on-eye-diseases-caused-by-diabetes.html</code></td></tr>
+      <tr><td class="num">203</td><td><code>/who-we-are/our-stories/shedding-light-upon-a-misunderstood-skin-condition-hidradenitis.html</code></td></tr>
+      <tr><td class="num">204</td><td><code>/who-we-are/our-stories/shining-light-on-glaucoma-and-eye-health.html</code></td></tr>
+      <tr><td class="num">205</td><td><code>/who-we-are/our-stories/starting-with-a-spark-an-inside-look-at-environmental-sustainability.html</code></td></tr>
+      <tr><td class="num">206</td><td><code>/who-we-are/our-stories/striving-for-patient-centricity-down-to-the-packaging.html</code></td></tr>
+      <tr><td class="num">207</td><td><code>/who-we-are/our-stories/stronger-together-convergence-minds-and-data.html</code></td></tr>
+      <tr><td class="num">208</td><td><code>/who-we-are/our-stories/synthetic-control-arm-end-placebos.html</code></td></tr>
+      <tr><td class="num">209</td><td><code>/who-we-are/our-stories/the-blueprint-of-you-unlocking-potential-whole-genome-sequencing.html</code></td></tr>
+      <tr><td class="num">210</td><td><code>/who-we-are/our-stories/the-hardest-hit-how-nonprofits-rise-to-challenge-covid-19.html</code></td></tr>
+      <tr><td class="num">211</td><td><code>/who-we-are/our-stories/the-math-of-migraine.html</code></td></tr>
+      <tr><td class="num">212</td><td><code>/who-we-are/our-stories/the-power-love-in-ibd.html</code></td></tr>
+      <tr><td class="num">213</td><td><code>/who-we-are/our-stories/the-story-behind-our-50-billion-rd-investment.html</code></td></tr>
+      <tr><td class="num">214</td><td><code>/who-we-are/our-stories/the-value-of-education-from-a-dim-reality-to-a-bright-future.html</code></td></tr>
+      <tr><td class="num">215</td><td><code>/who-we-are/our-stories/then-and-now-renaissance-in-blood-cancer-treatment.html</code></td></tr>
+      <tr><td class="num">216</td><td><code>/who-we-are/our-stories/they-wont-back-down.html</code></td></tr>
+      <tr><td class="num">217</td><td><code>/who-we-are/our-stories/three-factors-that-drove-transformational-integration-abbvie-allergan.html</code></td></tr>
+      <tr><td class="num">218</td><td><code>/who-we-are/our-stories/three-ways-ai-is-changing-drug-discovery-at-abbvie.html</code></td></tr>
+      <tr><td class="num">219</td><td><code>/who-we-are/our-stories/time-is-hours.html</code></td></tr>
+      <tr><td class="num">220</td><td><code>/who-we-are/our-stories/transforming-cancer-care-from-the-inside-out.html</code></td></tr>
+      <tr><td class="num">221</td><td><code>/who-we-are/our-stories/trapped-in-your-own-skin.html</code></td></tr>
+      <tr><td class="num">222</td><td><code>/who-we-are/our-stories/two-lives-converging-in-the-fight-against-parkinsons.html</code></td></tr>
+      <tr><td class="num">223</td><td><code>/who-we-are/our-stories/unlocking-the-next-level-of-protein-degradation.html</code></td></tr>
+      <tr><td class="num">224</td><td><code>/who-we-are/our-stories/voices-abbvie-reflecting-on-decade-impact.html</code></td></tr>
+      <tr><td class="num">225</td><td><code>/who-we-are/our-stories/what-does-it-take-to-discover-a-new-medicine.html</code></td></tr>
+      <tr><td class="num">226</td><td><code>/who-we-are/our-stories/why-delivering-science-based-targets-are-key-to-sustainable-grow.html</code></td></tr>
+      <tr><td class="num">227</td><td><code>/who-we-are/our-stories/why-isnt-medicine-one-size-fits-all.html</code></td></tr>
+      <tr><td class="num">228</td><td><code>/who-we-are/our-stories/why-you-cant-wait-with-rheumatoid-arthritis.html</code></td></tr>
+      <tr><td class="num">229</td><td><code>/who-we-are/our-stories/working-parents-2023-finding-comfort-in-community.html</code></td></tr>
+    </tbody>
+  </table>
+
+  <!-- NOTES -->
+  <div class="notes page-break">
+    <h2>Key Notes</h2>
+    <ul>
+      <li><strong>Waves 7 and 9</strong> (contact locations + story articles = ~125 pages) are templatized and ideal for <strong>bulk/batch import</strong>, which dramatically accelerates migration.</li>
+      <li><strong>Wave 1</strong> is the most labor-intensive per page because it establishes all the core block patterns and the design system.</li>
+      <li><strong>Story articles</strong> share a single template, so once one is migrated successfully, the remaining ~109 can be bulk-imported.</li>
+      <li><strong>Scope</strong>: This inventory covers abbvie.com (US domain) only. Regional sites, language variants, Privacy, HS, NIC, and PMIS sites are excluded per the agreed timeline (Phase 2: Months 5&ndash;7).</li>
+      <li><strong>External domains excluded</strong>: news.abbvie.com, investors.abbvie.com, careers.abbvie.com, privacy.abbvie, abbviemedinfo.com, abbviecontractmfg.com</li>
+    </ul>
+  </div>
+
+</body>
+</html>
