@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbbVie Corporate Site Migration Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.5;
+            color: #1a1a2e;
+            background: white;
+            font-size: 11px;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 20px 25px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #071d49;
+            margin-bottom: 5px;
+            border-bottom: 3px solid #071d49;
+            padding-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #071d49;
+            margin: 25px 0 12px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #00a3e0;
+        }
+
+        h3 {
+            font-size: 13px;
+            color: #333;
+            margin: 15px 0 8px 0;
+        }
+
+        .executive-summary {
+            background: linear-gradient(135deg, #071d49 0%, #0a2d6e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .executive-summary h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 16px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .metric-box {
+            background: rgba(255,255,255,0.15);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .metric-box .value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #00a3e0;
+        }
+
+        .metric-box .label {
+            font-size: 10px;
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 15px 0;
+            font-size: 10px;
+        }
+
+        th {
+            background: #071d49;
+            color: white;
+            padding: 8px 6px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 9px;
+        }
+
+        td {
+            padding: 6px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tr:hover {
+            background: #e8f4f8;
+        }
+
+        .sprint-header {
+            background: linear-gradient(135deg, #00a3e0 0%, #0077a8 100%);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 20px 0 10px 0;
+        }
+
+        .sprint-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .sprint-header .weeks {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .sprint-goal {
+            background: #f0f7ff;
+            border-left: 4px solid #00a3e0;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .sprint-team {
+            background: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 10px;
+        }
+
+        .sprint-team strong {
+            color: #071d49;
+        }
+
+        .sprint-total {
+            background: #071d49;
+            color: white;
+            font-weight: 700;
+        }
+
+        .sprint-total td {
+            border-bottom: none;
+            padding: 8px 6px;
+        }
+
+        .phase-banner {
+            background: linear-gradient(135deg, #071d49 0%, #1a3a6e 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+        }
+
+        .phase-banner h2 {
+            color: white;
+            border: none;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+
+        .phase-banner .description {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .resource-table th {
+            background: #2d5016;
+        }
+
+        .cost-table th {
+            background: #8b0000;
+        }
+
+        .milestone-table th {
+            background: #4a148c;
+        }
+
+        .risk-table th {
+            background: #e65100;
+        }
+
+        .budget-box {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .budget-box .amount {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .budget-box .label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hours-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .hours-box {
+            background: #f0f7ff;
+            border: 2px solid #00a3e0;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .hours-box .number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #071d49;
+        }
+
+        .hours-box .label {
+            font-size: 9px;
+            color: #666;
+        }
+
+        .success-metrics {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .success-metrics h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .footer-note {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .schedule-overview {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .schedule-overview h3 {
+            color: #e65100;
+            margin-top: 0;
+        }
+
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AbbVie.com Corporate Site Migration Plan</h1>
+        <p class="subtitle">Phase 1: English Corporate Site | 24 Weeks | 12 Sprints</p>
+
+        <div class="executive-summary">
+            <h3>Executive Summary</h3>
+            <p>Detailed sprint-by-sprint migration plan for AbbVie's corporate English site from AEM Classic to Adobe Edge Delivery Services. This plan covers 350-450 pages over 24 weeks with comprehensive resource allocation and deliverables.</p>
+
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="value">24</div>
+                    <div class="label">Weeks</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">12</div>
+                    <div class="label">Sprints</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">400</div>
+                    <div class="label">Pages</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">7.5</div>
+                    <div class="label">Avg FTE</div>
+                </div>
+                <div class="metric-box">
+                    <div class="value">$1.9M</div>
+                    <div class="label">Budget</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Resource Allocation</h2>
+
+        <h3>Core Team</h3>
+        <table class="resource-table">
+            <tr>
+                <th>Role</th>
+                <th>FTE</th>
+                <th>Weeks</th>
+                <th>Rate/Hr</th>
+                <th>Total Cost</th>
+            </tr>
+            <tr><td><strong>Program Manager</strong></td><td>1.0</td><td>24</td><td>$200</td><td>$192,000</td></tr>
+            <tr><td><strong>Technical Architect</strong></td><td>1.0</td><td>24</td><td>$200</td><td>$192,000</td></tr>
+            <tr><td><strong>EDS Lead Developer</strong></td><td>1.0</td><td>24</td><td>$175</td><td>$168,000</td></tr>
+            <tr><td>EDS Senior Developer 1</td><td>1.0</td><td>20</td><td>$150</td><td>$120,000</td></tr>
+            <tr><td>EDS Senior Developer 2</td><td>1.0</td><td>20</td><td>$150</td><td>$120,000</td></tr>
+            <tr><td>EDS Developer 1</td><td>1.0</td><td>16</td><td>$125</td><td>$80,000</td></tr>
+            <tr><td>EDS Developer 2</td><td>1.0</td><td>16</td><td>$125</td><td>$80,000</td></tr>
+            <tr><td><strong>Content Strategist</strong></td><td>1.0</td><td>24</td><td>$125</td><td>$120,000</td></tr>
+            <tr><td>Content Author 1</td><td>1.0</td><td>16</td><td>$75</td><td>$48,000</td></tr>
+            <tr><td>Content Author 2</td><td>1.0</td><td>16</td><td>$75</td><td>$48,000</td></tr>
+            <tr><td>Content Author 3</td><td>1.0</td><td>16</td><td>$75</td><td>$48,000</td></tr>
+            <tr><td><strong>QA Lead</strong></td><td>1.0</td><td>20</td><td>$150</td><td>$120,000</td></tr>
+            <tr><td>QA Engineer 1</td><td>1.0</td><td>12</td><td>$100</td><td>$48,000</td></tr>
+            <tr><td>QA Engineer 2</td><td>1.0</td><td>12</td><td>$100</td><td>$48,000</td></tr>
+            <tr><td>UX Designer</td><td>0.5</td><td>12</td><td>$150</td><td>$36,000</td></tr>
+            <tr class="sprint-total"><td colspan="4"><strong>Labor Subtotal</strong></td><td><strong>$1,468,000</strong></td></tr>
+        </table>
+
+        <div class="two-column">
+            <div>
+                <h3>Additional Costs</h3>
+                <table class="cost-table">
+                    <tr><th>Item</th><th>Cost</th></tr>
+                    <tr><td>Contingency (25%)</td><td>$367,000</td></tr>
+                    <tr><td>Tools & Licenses</td><td>$25,000</td></tr>
+                    <tr><td>Testing Infrastructure</td><td>$15,000</td></tr>
+                    <tr><td>Training & Documentation</td><td>$20,000</td></tr>
+                    <tr><td>Travel & Workshops</td><td>$28,600</td></tr>
+                    <tr class="sprint-total"><td><strong>Additional Subtotal</strong></td><td><strong>$455,600</strong></td></tr>
+                </table>
+            </div>
+            <div>
+                <div class="budget-box">
+                    <div class="label">Total Phase 1 Budget</div>
+                    <div class="amount">$1,923,600</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="schedule-overview">
+            <h3>Sprint Schedule Overview</h3>
+            <table>
+                <tr>
+                    <th>Sprint</th>
+                    <th>Weeks</th>
+                    <th>Phase</th>
+                    <th>Focus</th>
+                </tr>
+                <tr><td>1</td><td>1-2</td><td>Foundation</td><td>Project Setup & Architecture</td></tr>
+                <tr><td>2</td><td>3-4</td><td>Foundation</td><td>Core Navigation & Header</td></tr>
+                <tr><td>3</td><td>5-6</td><td>Foundation</td><td>Footer & Global Components</td></tr>
+                <tr><td>4</td><td>7-8</td><td>Block Library</td><td>Hero & Card Blocks</td></tr>
+                <tr><td>5</td><td>9-10</td><td>Block Library</td><td>Content & Interactive Blocks</td></tr>
+                <tr><td>6</td><td>11-12</td><td>Block Library</td><td>Advanced Blocks & Forms</td></tr>
+                <tr><td>7</td><td>13-14</td><td>Content Migration</td><td>Homepage & Who We Are</td></tr>
+                <tr><td>8</td><td>15-16</td><td>Content Migration</td><td>Science & Patients</td></tr>
+                <tr><td>9</td><td>17-18</td><td>Content Migration</td><td>Join Us & Sustainability</td></tr>
+                <tr><td>10</td><td>19-20</td><td>Content Migration</td><td>Newsroom & Utility Pages</td></tr>
+                <tr><td>11</td><td>21-22</td><td>QA & Compliance</td><td>Testing & Accessibility</td></tr>
+                <tr><td>12</td><td>23-24</td><td>Launch</td><td>Go-Live & Optimization</td></tr>
+            </table>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Phase 1: Foundation -->
+        <div class="phase-banner">
+            <h2>Phase 1: Foundation (Sprints 1-3)</h2>
+            <div class="description">Establish project foundation, design system, navigation, and global components</div>
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 1: Project Setup & Architecture</h3>
+            <div class="weeks">Weeks 1-2</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Establish project foundation, repository, and design system extraction
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Project kickoff & stakeholder alignment</td><td>16</td><td>Program Manager</td><td>Kickoff deck, RACI</td></tr>
+            <tr><td>Repository setup & CI/CD pipeline</td><td>24</td><td>Technical Architect</td><td>GitHub repo, Actions</td></tr>
+            <tr><td>EDS boilerplate configuration</td><td>16</td><td>EDS Lead</td><td>Configured boilerplate</td></tr>
+            <tr><td>Design token extraction (colors)</td><td>20</td><td>UX Designer</td><td>Color variables</td></tr>
+            <tr><td>Design token extraction (typography)</td><td>16</td><td>UX Designer</td><td>Font variables</td></tr>
+            <tr><td>Design token extraction (spacing)</td><td>12</td><td>UX Designer</td><td>Spacing variables</td></tr>
+            <tr><td>styles.css foundation</td><td>24</td><td>EDS Lead</td><td>Global styles</td></tr>
+            <tr><td>Content inventory analysis</td><td>32</td><td>Content Strategist</td><td>Page inventory</td></tr>
+            <tr><td>Template identification</td><td>24</td><td>Content Strategist</td><td>Template map</td></tr>
+            <tr><td>AEM content export setup</td><td>20</td><td>Technical Architect</td><td>Export scripts</td></tr>
+            <tr><td>Environment setup (dev/stage)</td><td>16</td><td>Technical Architect</td><td>Environments</td></tr>
+            <tr><td>Sprint planning & documentation</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 1 Total</strong></td><td><strong>228</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 1 Team:</strong> Program Manager (24 hrs) • Technical Architect (60 hrs) • EDS Lead (40 hrs) • Content Strategist (56 hrs) • UX Designer (48 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 2: Core Navigation & Header</h3>
+            <div class="weeks">Weeks 3-4</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Implement global header, navigation, and mega menu
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Header block structure</td><td>24</td><td>EDS Lead</td><td>header block</td></tr>
+            <tr><td>Navigation data model (nav.xlsx)</td><td>16</td><td>Content Strategist</td><td>nav spreadsheet</td></tr>
+            <tr><td>Mega menu implementation</td><td>40</td><td>EDS Senior Dev 1</td><td>Mega menu JS/CSS</td></tr>
+            <tr><td>Mobile navigation</td><td>32</td><td>EDS Senior Dev 2</td><td>Responsive nav</td></tr>
+            <tr><td>Search integration setup</td><td>24</td><td>EDS Lead</td><td>Search component</td></tr>
+            <tr><td>Language/region selector</td><td>20</td><td>EDS Senior Dev 1</td><td>Locale selector</td></tr>
+            <tr><td>Sticky header behavior</td><td>12</td><td>EDS Senior Dev 2</td><td>Scroll behavior</td></tr>
+            <tr><td>Header accessibility (WCAG)</td><td>16</td><td>QA Lead</td><td>A11y compliance</td></tr>
+            <tr><td>Cross-browser testing</td><td>12</td><td>QA Lead</td><td>Test results</td></tr>
+            <tr><td>AEM navigation export</td><td>16</td><td>Technical Architect</td><td>Nav data</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 2 Total</strong></td><td><strong>220</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 2 Team:</strong> Program Manager (8 hrs) • Technical Architect (16 hrs) • EDS Lead (48 hrs) • Senior Dev 1 (44 hrs) • Senior Dev 2 (44 hrs) • Content Strategist (32 hrs) • QA Lead (28 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 3: Footer & Global Components</h3>
+            <div class="weeks">Weeks 5-6</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Complete footer, ISI, cookie consent, and pharma compliance components
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Footer block implementation</td><td>32</td><td>EDS Senior Dev 1</td><td>footer block</td></tr>
+            <tr><td>Footer link management</td><td>16</td><td>Content Strategist</td><td>Footer nav</td></tr>
+            <tr><td>Social links component</td><td>12</td><td>EDS Senior Dev 2</td><td>Social icons</td></tr>
+            <tr><td>ISI (Important Safety Info) block</td><td>40</td><td>EDS Lead</td><td>ISI component</td></tr>
+            <tr><td>ISI sticky behavior</td><td>20</td><td>EDS Lead</td><td>Scroll-aware ISI</td></tr>
+            <tr><td>Cookie consent (OneTrust)</td><td>32</td><td>EDS Senior Dev 1</td><td>Cookie banner</td></tr>
+            <tr><td>GDPR/privacy components</td><td>24</td><td>EDS Senior Dev 2</td><td>Privacy controls</td></tr>
+            <tr><td>Analytics foundation (Adobe)</td><td>24</td><td>Technical Architect</td><td>Analytics setup</td></tr>
+            <tr><td>Back-to-top component</td><td>8</td><td>EDS Developer 1</td><td>Scroll component</td></tr>
+            <tr><td>Skip navigation (a11y)</td><td>8</td><td>EDS Developer 1</td><td>Skip links</td></tr>
+            <tr><td>Global component testing</td><td>16</td><td>QA Lead</td><td>Test results</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 3 Total</strong></td><td><strong>240</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 3 Team:</strong> Program Manager (8 hrs) • Technical Architect (24 hrs) • EDS Lead (60 hrs) • Senior Dev 1 (48 hrs) • Senior Dev 2 (36 hrs) • Developer 1 (16 hrs) • Content Strategist (32 hrs) • QA Lead (16 hrs)
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Phase 2: Block Library -->
+        <div class="phase-banner">
+            <h2>Phase 2: Block Library (Sprints 4-6)</h2>
+            <div class="description">Build comprehensive block library including heroes, cards, content blocks, and forms</div>
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 4: Hero & Card Blocks</h3>
+            <div class="weeks">Weeks 7-8</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Build hero variants and card component library
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Hero block (full-width)</td><td>32</td><td>EDS Lead</td><td>hero block</td></tr>
+            <tr><td>Hero with video background</td><td>24</td><td>EDS Lead</td><td>Video hero</td></tr>
+            <tr><td>Hero with CTA overlay</td><td>20</td><td>EDS Senior Dev 1</td><td>CTA hero</td></tr>
+            <tr><td>Hero carousel/slider</td><td>32</td><td>EDS Senior Dev 1</td><td>Carousel hero</td></tr>
+            <tr><td>Card block (standard)</td><td>24</td><td>EDS Senior Dev 2</td><td>cards block</td></tr>
+            <tr><td>Card grid layouts (2/3/4 col)</td><td>20</td><td>EDS Senior Dev 2</td><td>Grid variants</td></tr>
+            <tr><td>Featured card (large)</td><td>16</td><td>EDS Developer 1</td><td>Featured card</td></tr>
+            <tr><td>Icon card variant</td><td>16</td><td>EDS Developer 1</td><td>Icon cards</td></tr>
+            <tr><td>People/leadership cards</td><td>24</td><td>EDS Developer 2</td><td>People cards</td></tr>
+            <tr><td>Card hover states</td><td>12</td><td>EDS Developer 2</td><td>Interactions</td></tr>
+            <tr><td>Block documentation</td><td>16</td><td>Content Strategist</td><td>Author guide</td></tr>
+            <tr><td>Visual QA review</td><td>16</td><td>QA Lead</td><td>QA report</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 4 Total</strong></td><td><strong>260</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 4 Team:</strong> Program Manager (8 hrs) • EDS Lead (56 hrs) • Senior Dev 1 (52 hrs) • Senior Dev 2 (44 hrs) • Developer 1 (32 hrs) • Developer 2 (36 hrs) • Content Strategist (16 hrs) • QA Lead (16 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 5: Content & Interactive Blocks</h3>
+            <div class="weeks">Weeks 9-10</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Build content blocks (accordions, tabs, columns) and interactive elements
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Accordion block</td><td>24</td><td>EDS Lead</td><td>accordion block</td></tr>
+            <tr><td>Tabs block</td><td>28</td><td>EDS Lead</td><td>tabs block</td></tr>
+            <tr><td>Columns block (variants)</td><td>24</td><td>EDS Senior Dev 1</td><td>columns block</td></tr>
+            <tr><td>Quote/testimonial block</td><td>16</td><td>EDS Senior Dev 1</td><td>quote block</td></tr>
+            <tr><td>Timeline block</td><td>32</td><td>EDS Senior Dev 2</td><td>timeline block</td></tr>
+            <tr><td>Stats/counter block</td><td>24</td><td>EDS Senior Dev 2</td><td>stats block</td></tr>
+            <tr><td>Table block (responsive)</td><td>20</td><td>EDS Developer 1</td><td>table block</td></tr>
+            <tr><td>Embed block (video/iframe)</td><td>20</td><td>EDS Developer 1</td><td>embed block</td></tr>
+            <tr><td>Image gallery block</td><td>28</td><td>EDS Developer 2</td><td>gallery block</td></tr>
+            <tr><td>CTA block variants</td><td>16</td><td>EDS Developer 2</td><td>CTA blocks</td></tr>
+            <tr><td>Animation/transition polish</td><td>16</td><td>UX Designer</td><td>Motion design</td></tr>
+            <tr><td>Block integration testing</td><td>16</td><td>QA Lead</td><td>Test results</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 5 Total</strong></td><td><strong>272</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 5 Team:</strong> Program Manager (8 hrs) • EDS Lead (52 hrs) • Senior Dev 1 (40 hrs) • Senior Dev 2 (56 hrs) • Developer 1 (40 hrs) • Developer 2 (44 hrs) • UX Designer (16 hrs) • QA Lead (16 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 6: Advanced Blocks & Forms</h3>
+            <div class="weeks">Weeks 11-12</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Complex interactive blocks, forms, and search functionality
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Form block (contact forms)</td><td>40</td><td>EDS Lead</td><td>form block</td></tr>
+            <tr><td>Form validation</td><td>24</td><td>EDS Lead</td><td>Client validation</td></tr>
+            <tr><td>Form submission handling</td><td>20</td><td>Technical Architect</td><td>Backend integration</td></tr>
+            <tr><td>Search results page</td><td>32</td><td>EDS Senior Dev 1</td><td>Search results</td></tr>
+            <tr><td>Search autocomplete</td><td>24</td><td>EDS Senior Dev 1</td><td>Autocomplete</td></tr>
+            <tr><td>Filter/facet components</td><td>28</td><td>EDS Senior Dev 2</td><td>Filter UI</td></tr>
+            <tr><td>Map/location block</td><td>24</td><td>EDS Senior Dev 2</td><td>map block</td></tr>
+            <tr><td>Document download block</td><td>16</td><td>EDS Developer 1</td><td>Downloads</td></tr>
+            <tr><td>PDF viewer component</td><td>20</td><td>EDS Developer 1</td><td>PDF viewer</td></tr>
+            <tr><td>Social share block</td><td>12</td><td>EDS Developer 2</td><td>Share buttons</td></tr>
+            <tr><td>Related content block</td><td>16</td><td>EDS Developer 2</td><td>Related items</td></tr>
+            <tr><td>Form accessibility testing</td><td>12</td><td>QA Lead</td><td>A11y testing</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 6 Total</strong></td><td><strong>276</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 6 Team:</strong> Program Manager (8 hrs) • Technical Architect (20 hrs) • EDS Lead (64 hrs) • Senior Dev 1 (56 hrs) • Senior Dev 2 (52 hrs) • Developer 1 (36 hrs) • Developer 2 (28 hrs) • QA Lead (12 hrs)
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Phase 3: Content Migration -->
+        <div class="phase-banner">
+            <h2>Phase 3: Content Migration (Sprints 7-10)</h2>
+            <div class="description">Migrate all content sections: ~350 pages across Who We Are, Science, Patients, Careers, and Newsroom</div>
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 7: Homepage & Who We Are</h3>
+            <div class="weeks">Weeks 13-14</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Migrate homepage and "Who We Are" section (~50 pages)
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Homepage migration</td><td>40</td><td>EDS Lead</td><td>Homepage live</td></tr>
+            <tr><td>Homepage animations</td><td>16</td><td>EDS Senior Dev 1</td><td>Animations</td></tr>
+            <tr><td>Who We Are landing</td><td>24</td><td>Content Author 1</td><td>Section landing</td></tr>
+            <tr><td>Key Facts pages (8)</td><td>32</td><td>Content Author 1</td><td>Key facts</td></tr>
+            <tr><td>Leadership pages (20+)</td><td>48</td><td>Content Author 2</td><td>Leadership bios</td></tr>
+            <tr><td>Leadership grid page</td><td>16</td><td>EDS Senior Dev 1</td><td>Grid layout</td></tr>
+            <tr><td>History/timeline pages</td><td>32</td><td>Content Author 3</td><td>History section</td></tr>
+            <tr><td>Culture pages (8)</td><td>24</td><td>Content Author 3</td><td>Culture content</td></tr>
+            <tr><td>Awards & recognition</td><td>16</td><td>Content Author 2</td><td>Awards pages</td></tr>
+            <tr><td>Image optimization</td><td>20</td><td>EDS Developer 1</td><td>Optimized images</td></tr>
+            <tr><td>Content QA review</td><td>24</td><td>QA Engineer 1</td><td>QA report</td></tr>
+            <tr><td>SEO metadata setup</td><td>16</td><td>Content Strategist</td><td>Metadata</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 7 Total</strong></td><td><strong>316</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 7 Team:</strong> Program Manager (8 hrs) • EDS Lead (40 hrs) • Senior Dev 1 (32 hrs) • Developer 1 (20 hrs) • Content Strategist (16 hrs) • Content Author 1 (56 hrs) • Content Author 2 (64 hrs) • Content Author 3 (56 hrs) • QA Engineer 1 (24 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 8: Science & Patients</h3>
+            <div class="weeks">Weeks 15-16</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Migrate Science and Patients sections (~120 pages)
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Science landing page</td><td>24</td><td>EDS Lead</td><td>Science home</td></tr>
+            <tr><td>Pipeline pages (30+)</td><td>72</td><td>Content Author 1</td><td>Pipeline content</td></tr>
+            <tr><td>Pipeline interactive table</td><td>32</td><td>EDS Senior Dev 1</td><td>Pipeline table</td></tr>
+            <tr><td>Therapeutic areas (15)</td><td>48</td><td>Content Author 2</td><td>TA pages</td></tr>
+            <tr><td>R&D approach pages</td><td>24</td><td>Content Author 2</td><td>R&D content</td></tr>
+            <tr><td>Patients landing page</td><td>20</td><td>EDS Lead</td><td>Patients home</td></tr>
+            <tr><td>Patient assistance pages</td><td>40</td><td>Content Author 3</td><td>Assistance info</td></tr>
+            <tr><td>Medical information pages</td><td>32</td><td>Content Author 3</td><td>Medical info</td></tr>
+            <tr><td>Resource downloads setup</td><td>16</td><td>EDS Developer 1</td><td>Downloads</td></tr>
+            <tr><td>ISI integration per page</td><td>24</td><td>EDS Senior Dev 2</td><td>ISI placement</td></tr>
+            <tr><td>Regulatory content review</td><td>16</td><td>Content Strategist</td><td>MLR prep</td></tr>
+            <tr><td>Content QA review</td><td>32</td><td>QA Engineer 1</td><td>QA report</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 8 Total</strong></td><td><strong>388</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 8 Team:</strong> Program Manager (8 hrs) • EDS Lead (44 hrs) • Senior Dev 1 (32 hrs) • Senior Dev 2 (24 hrs) • Developer 1 (16 hrs) • Content Strategist (16 hrs) • Content Author 1 (72 hrs) • Content Author 2 (72 hrs) • Content Author 3 (72 hrs) • QA Engineer 1 (32 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 9: Join Us & Sustainability</h3>
+            <div class="weeks">Weeks 17-18</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Migrate Careers and Sustainability sections (~80 pages)
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Join Us landing page</td><td>24</td><td>EDS Lead</td><td>Careers home</td></tr>
+            <tr><td>Life at AbbVie pages (12)</td><td>40</td><td>Content Author 1</td><td>Culture pages</td></tr>
+            <tr><td>Benefits pages (10)</td><td>32</td><td>Content Author 1</td><td>Benefits content</td></tr>
+            <tr><td>Locations pages (15)</td><td>48</td><td>Content Author 2</td><td>Office locations</td></tr>
+            <tr><td>Job search integration</td><td>32</td><td>EDS Senior Dev 1</td><td>Job search</td></tr>
+            <tr><td>Sustainability landing</td><td>20</td><td>EDS Lead</td><td>ESG home</td></tr>
+            <tr><td>ESG report pages</td><td>32</td><td>Content Author 3</td><td>ESG content</td></tr>
+            <tr><td>Community pages (10)</td><td>32</td><td>Content Author 3</td><td>Community</td></tr>
+            <tr><td>Environment pages (8)</td><td>24</td><td>Content Author 2</td><td>Environment</td></tr>
+            <tr><td>Interactive data viz</td><td>24</td><td>EDS Senior Dev 2</td><td>Charts/graphs</td></tr>
+            <tr><td>Content QA review</td><td>24</td><td>QA Engineer 1</td><td>QA report</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 9 Total</strong></td><td><strong>340</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 9 Team:</strong> Program Manager (8 hrs) • EDS Lead (44 hrs) • Senior Dev 1 (32 hrs) • Senior Dev 2 (24 hrs) • Content Author 1 (72 hrs) • Content Author 2 (72 hrs) • Content Author 3 (64 hrs) • QA Engineer 1 (24 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 10: Newsroom & Utility Pages</h3>
+            <div class="weeks">Weeks 19-20</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Migrate Newsroom section and utility pages (~100 pages)
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Newsroom landing page</td><td>24</td><td>EDS Lead</td><td>News home</td></tr>
+            <tr><td>News article template</td><td>32</td><td>EDS Senior Dev 1</td><td>Article template</td></tr>
+            <tr><td>News archive/listing</td><td>28</td><td>EDS Senior Dev 1</td><td>Archive pages</td></tr>
+            <tr><td>News filtering/search</td><td>24</td><td>EDS Senior Dev 2</td><td>News search</td></tr>
+            <tr><td>Media resources pages</td><td>32</td><td>Content Author 1</td><td>Media kit</td></tr>
+            <tr><td>Press release migration (50)</td><td>64</td><td>Content Author 2</td><td>Press releases</td></tr>
+            <tr><td>Investor relations pages</td><td>32</td><td>Content Author 3</td><td>IR content</td></tr>
+            <tr><td>Contact pages</td><td>16</td><td>Content Author 1</td><td>Contact forms</td></tr>
+            <tr><td>Legal/privacy pages</td><td>24</td><td>Content Author 3</td><td>Legal pages</td></tr>
+            <tr><td>Sitemap generation</td><td>12</td><td>EDS Developer 1</td><td>XML sitemap</td></tr>
+            <tr><td>404/error pages</td><td>8</td><td>EDS Developer 1</td><td>Error pages</td></tr>
+            <tr><td>Content QA review</td><td>24</td><td>QA Engineer 2</td><td>QA report</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 10 Total</strong></td><td><strong>328</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 10 Team:</strong> Program Manager (8 hrs) • EDS Lead (24 hrs) • Senior Dev 1 (60 hrs) • Senior Dev 2 (24 hrs) • Developer 1 (20 hrs) • Content Author 1 (48 hrs) • Content Author 2 (64 hrs) • Content Author 3 (56 hrs) • QA Engineer 2 (24 hrs)
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Phase 4: QA & Launch -->
+        <div class="phase-banner">
+            <h2>Phase 4: QA & Launch (Sprints 11-12)</h2>
+            <div class="description">Comprehensive testing, compliance validation, and production deployment</div>
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 11: Testing & Compliance</h3>
+            <div class="weeks">Weeks 21-22</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Comprehensive testing, accessibility audit, and regulatory compliance
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>Full regression testing</td><td>48</td><td>QA Lead</td><td>Test results</td></tr>
+            <tr><td>Cross-browser testing</td><td>32</td><td>QA Engineer 1</td><td>Browser matrix</td></tr>
+            <tr><td>Mobile/responsive testing</td><td>32</td><td>QA Engineer 2</td><td>Device testing</td></tr>
+            <tr><td>Accessibility audit (WCAG 2.1)</td><td>40</td><td>QA Lead</td><td>A11y report</td></tr>
+            <tr><td>Accessibility remediation</td><td>32</td><td>EDS Senior Dev 1</td><td>A11y fixes</td></tr>
+            <tr><td>Performance testing</td><td>24</td><td>Technical Architect</td><td>Perf report</td></tr>
+            <tr><td>Performance optimization</td><td>32</td><td>EDS Lead</td><td>Optimizations</td></tr>
+            <tr><td>Security testing</td><td>20</td><td>Technical Architect</td><td>Security report</td></tr>
+            <tr><td>MLR/regulatory review</td><td>40</td><td>Content Strategist</td><td>MLR approval</td></tr>
+            <tr><td>Content accuracy review</td><td>24</td><td>Content Author 1</td><td>Content QA</td></tr>
+            <tr><td>Analytics validation</td><td>16</td><td>Technical Architect</td><td>Analytics QA</td></tr>
+            <tr><td>Bug fixes & polish</td><td>40</td><td>EDS Senior Dev 2</td><td>Bug fixes</td></tr>
+            <tr><td>Sprint planning</td><td>8</td><td>Program Manager</td><td>Sprint docs</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 11 Total</strong></td><td><strong>388</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 11 Team:</strong> Program Manager (8 hrs) • Technical Architect (60 hrs) • EDS Lead (32 hrs) • Senior Dev 1 (32 hrs) • Senior Dev 2 (40 hrs) • Content Strategist (40 hrs) • Content Author 1 (24 hrs) • QA Lead (88 hrs) • QA Engineer 1 (32 hrs) • QA Engineer 2 (32 hrs)
+        </div>
+
+        <div class="sprint-header">
+            <h3>Sprint 12: Launch & Optimization</h3>
+            <div class="weeks">Weeks 23-24</div>
+        </div>
+
+        <div class="sprint-goal">
+            <strong>Sprint Goal:</strong> Production deployment, monitoring, and knowledge transfer
+        </div>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Hours</th>
+                <th>Owner</th>
+                <th>Deliverable</th>
+            </tr>
+            <tr><td>DNS/CDN configuration</td><td>16</td><td>Technical Architect</td><td>DNS setup</td></tr>
+            <tr><td>SSL certificate setup</td><td>8</td><td>Technical Architect</td><td>SSL certs</td></tr>
+            <tr><td>Redirect mapping (301s)</td><td>24</td><td>EDS Lead</td><td>Redirect rules</td></tr>
+            <tr><td>Redirect implementation</td><td>16</td><td>EDS Lead</td><td>Redirects live</td></tr>
+            <tr><td>Soft launch (limited traffic)</td><td>16</td><td>Program Manager</td><td>Soft launch</td></tr>
+            <tr><td>Monitoring setup</td><td>20</td><td>Technical Architect</td><td>Monitoring</td></tr>
+            <tr><td>Full production launch</td><td>16</td><td>Program Manager</td><td>Go-live</td></tr>
+            <tr><td>Post-launch monitoring</td><td>24</td><td>QA Lead</td><td>Monitoring</td></tr>
+            <tr><td>Bug triage & hotfixes</td><td>32</td><td>EDS Senior Dev 1</td><td>Hotfixes</td></tr>
+            <tr><td>Author training sessions</td><td>24</td><td>Content Strategist</td><td>Training</td></tr>
+            <tr><td>Admin documentation</td><td>20</td><td>Content Strategist</td><td>Admin guide</td></tr>
+            <tr><td>Developer documentation</td><td>24</td><td>EDS Lead</td><td>Dev docs</td></tr>
+            <tr><td>Knowledge transfer</td><td>16</td><td>Technical Architect</td><td>KT sessions</td></tr>
+            <tr><td>Project retrospective</td><td>8</td><td>Program Manager</td><td>Retro notes</td></tr>
+            <tr><td>Phase 2 planning kickoff</td><td>12</td><td>Program Manager</td><td>Phase 2 plan</td></tr>
+            <tr class="sprint-total"><td><strong>Sprint 12 Total</strong></td><td><strong>276</strong></td><td></td><td></td></tr>
+        </table>
+
+        <div class="sprint-team">
+            <strong>Sprint 12 Team:</strong> Program Manager (52 hrs) • Technical Architect (60 hrs) • EDS Lead (64 hrs) • Senior Dev 1 (32 hrs) • Content Strategist (44 hrs) • QA Lead (24 hrs)
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>Sprint Hours Summary</h2>
+
+        <div class="hours-summary">
+            <div class="hours-box">
+                <div class="number">688</div>
+                <div class="label">Phase 1: Foundation</div>
+            </div>
+            <div class="hours-box">
+                <div class="number">808</div>
+                <div class="label">Phase 2: Block Library</div>
+            </div>
+            <div class="hours-box">
+                <div class="number">1,372</div>
+                <div class="label">Phase 3: Content</div>
+            </div>
+            <div class="hours-box">
+                <div class="number">664</div>
+                <div class="label">Phase 4: QA & Launch</div>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th>Sprint</th>
+                <th>Phase</th>
+                <th>Total Hours</th>
+                <th>Cumulative</th>
+            </tr>
+            <tr><td>Sprint 1</td><td>Foundation</td><td>228</td><td>228</td></tr>
+            <tr><td>Sprint 2</td><td>Foundation</td><td>220</td><td>448</td></tr>
+            <tr><td>Sprint 3</td><td>Foundation</td><td>240</td><td>688</td></tr>
+            <tr><td>Sprint 4</td><td>Block Library</td><td>260</td><td>948</td></tr>
+            <tr><td>Sprint 5</td><td>Block Library</td><td>272</td><td>1,220</td></tr>
+            <tr><td>Sprint 6</td><td>Block Library</td><td>276</td><td>1,496</td></tr>
+            <tr><td>Sprint 7</td><td>Content Migration</td><td>316</td><td>1,812</td></tr>
+            <tr><td>Sprint 8</td><td>Content Migration</td><td>388</td><td>2,200</td></tr>
+            <tr><td>Sprint 9</td><td>Content Migration</td><td>340</td><td>2,540</td></tr>
+            <tr><td>Sprint 10</td><td>Content Migration</td><td>328</td><td>2,868</td></tr>
+            <tr><td>Sprint 11</td><td>QA & Compliance</td><td>388</td><td>3,256</td></tr>
+            <tr><td>Sprint 12</td><td>Launch</td><td>276</td><td>3,532</td></tr>
+            <tr class="sprint-total"><td colspan="2"><strong>Total Sprint Hours</strong></td><td><strong>3,532</strong></td><td></td></tr>
+        </table>
+
+        <h2>Key Milestones</h2>
+
+        <table class="milestone-table">
+            <tr>
+                <th>Milestone</th>
+                <th>Target Date</th>
+                <th>Success Criteria</th>
+            </tr>
+            <tr><td><strong>Project Kickoff</strong></td><td>Week 1</td><td>Stakeholder alignment, repo created</td></tr>
+            <tr><td><strong>Design System Complete</strong></td><td>Week 2</td><td>All tokens extracted, styles.css ready</td></tr>
+            <tr><td><strong>Navigation Live</strong></td><td>Week 4</td><td>Header, footer, nav functional</td></tr>
+            <tr><td><strong>Block Library Complete</strong></td><td>Week 12</td><td>All 25+ blocks ready</td></tr>
+            <tr><td><strong>50% Content Migrated</strong></td><td>Week 16</td><td>~200 pages live</td></tr>
+            <tr><td><strong>100% Content Migrated</strong></td><td>Week 20</td><td>All ~400 pages live</td></tr>
+            <tr><td><strong>QA Sign-off</strong></td><td>Week 22</td><td>All tests passing</td></tr>
+            <tr><td><strong>Production Launch</strong></td><td>Week 24</td><td>Site live, monitoring active</td></tr>
+        </table>
+
+        <h2>Risk Mitigation</h2>
+
+        <table class="risk-table">
+            <tr>
+                <th>Risk</th>
+                <th>Probability</th>
+                <th>Impact</th>
+                <th>Mitigation</th>
+            </tr>
+            <tr><td><strong>MLR delays</strong></td><td>High</td><td>High</td><td>Early engagement, parallel review tracks</td></tr>
+            <tr><td><strong>Content volume increase</strong></td><td>Medium</td><td>Medium</td><td>25% contingency buffer</td></tr>
+            <tr><td><strong>Integration complexity</strong></td><td>Medium</td><td>High</td><td>Prototype integrations in Sprint 3</td></tr>
+            <tr><td><strong>Resource availability</strong></td><td>Low</td><td>High</td><td>Cross-training, documentation</td></tr>
+            <tr><td><strong>Performance issues</strong></td><td>Low</td><td>Medium</td><td>Continuous performance testing</td></tr>
+        </table>
+
+        <div class="success-metrics">
+            <h3>Success Metrics</h3>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Current</th>
+                    <th>Target</th>
+                    <th>Measurement</th>
+                </tr>
+                <tr><td>Page Load Time</td><td>4-5s</td><td>&lt;0.5s</td><td>Lighthouse</td></tr>
+                <tr><td>Lighthouse Performance</td><td>40-50</td><td>95+</td><td>Lighthouse</td></tr>
+                <tr><td>Core Web Vitals</td><td>Poor</td><td>Good (all green)</td><td>CrUX</td></tr>
+                <tr><td>Time to First Byte</td><td>800ms+</td><td>&lt;100ms</td><td>WebPageTest</td></tr>
+                <tr><td>Content Publish Time</td><td>2-4 hours</td><td>&lt;30 minutes</td><td>Operational</td></tr>
+                <tr><td>Accessibility Score</td><td>Unknown</td><td>100% WCAG 2.1 AA</td><td>axe/WAVE</td></tr>
+            </table>
+        </div>
+
+        <h2>Post-Launch Support</h2>
+
+        <div class="two-column">
+            <div>
+                <h3>Hypercare Period (Weeks 25-28)</h3>
+                <ul>
+                    <li>Dedicated support team (3 FTE)</li>
+                    <li>24-hour response SLA</li>
+                    <li>Daily monitoring reviews</li>
+                    <li>Weekly stakeholder updates</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Transition to BAU</h3>
+                <ul>
+                    <li>Reduced team (1.5 FTE)</li>
+                    <li>Standard support SLA</li>
+                    <li>Monthly performance reviews</li>
+                    <li>Quarterly optimization sprints</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p><strong>Document Version:</strong> 1.0 | <strong>Created:</strong> January 2026</p>
+            <p><strong>Project:</strong> AbbVie Corporate Site Migration - Phase 1 (English)</p>
+            <p>This migration plan is prepared for project planning purposes. Resource estimates and timelines should be validated with stakeholder availability and organizational constraints.</p>
+        </div>
+    </div>
+</body>
+</html>

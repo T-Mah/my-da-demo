@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RINVOQ.com Migration Project Plan</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      font-size: 10pt;
+    }
+    h1 {
+      font-size: 24pt;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      border-bottom: 3px solid #6c5ce7;
+      padding-bottom: 10px;
+    }
+    h2 {
+      font-size: 16pt;
+      color: #6c5ce7;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 12pt;
+      color: #444;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-size: 11pt;
+      color: #6c5ce7;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      background: #f8f9fa;
+      padding: 8px 12px;
+      border-left: 4px solid #6c5ce7;
+    }
+    p { margin-bottom: 10px; }
+    .subtitle {
+      font-size: 12pt;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px 0;
+      font-size: 9pt;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background: #6c5ce7;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #fafafa; }
+    .sprint-header {
+      background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 24px 0 12px 0;
+    }
+    .sprint-header h4 {
+      color: white;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13pt;
+    }
+    .sprint-header p {
+      margin: 4px 0 0 0;
+      opacity: 0.9;
+      font-size: 10pt;
+    }
+    .deliverables {
+      background: #e8f5e9;
+      border: 1px solid #4caf50;
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 12px 0;
+    }
+    .deliverables h5 {
+      color: #2e7d32;
+      margin-bottom: 8px;
+      font-size: 10pt;
+    }
+    .deliverables ul {
+      margin: 0 0 0 20px;
+    }
+    .deliverables li {
+      margin-bottom: 4px;
+    }
+    .phase-box {
+      border: 2px solid #6c5ce7;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+      background: #f8f7ff;
+    }
+    .phase-box h3 {
+      color: #6c5ce7;
+      margin-top: 0;
+    }
+    .timeline-visual {
+      background: #2d3436;
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 8pt;
+      white-space: pre;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+    .resource-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .resource-card {
+      flex: 1;
+      min-width: 120px;
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+    .resource-card .number {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #6c5ce7;
+    }
+    .resource-card .label {
+      font-size: 9pt;
+      color: #666;
+    }
+    .budget-highlight {
+      background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .budget-highlight .amount {
+      font-size: 28pt;
+      font-weight: bold;
+    }
+    .budget-highlight .label {
+      font-size: 11pt;
+      opacity: 0.9;
+    }
+    ul { margin: 8px 0 8px 20px; }
+    li { margin-bottom: 4px; }
+    .page-break { page-break-before: always; }
+    strong { color: #1a1a1a; }
+    code {
+      background: #f1f1f1;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 9pt;
+    }
+    .footer {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+      font-size: 8pt;
+      color: #666;
+      font-style: italic;
+    }
+    .risk-high { background: #ffebee; }
+    .risk-medium { background: #fff8e1; }
+    .risk-low { background: #e8f5e9; }
+    .metric-row { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+    .metric-item {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .metric-item .value { font-size: 18pt; font-weight: bold; color: #6c5ce7; }
+    .metric-item .label { font-size: 8pt; color: #666; }
+  </style>
+</head>
+<body>
+
+<h1>RINVOQ.com Migration Project Plan</h1>
+<p class="subtitle">AEM Classic to Adobe Edge Delivery Services - Sprint-Based Execution Plan</p>
+
+<h2>Project Overview</h2>
+
+<div class="metric-row">
+  <div class="metric-item">
+    <div class="value">20</div>
+    <div class="label">Weeks Duration</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">10</div>
+    <div class="label">Sprints</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">~150</div>
+    <div class="label">Pages</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">18-22</div>
+    <div class="label">Custom Blocks</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">5.25</div>
+    <div class="label">Avg FTE</div>
+  </div>
+</div>
+
+<h2>Resource Requirements</h2>
+
+<h3>Core Team</h3>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>FTE</th>
+    <th>Duration</th>
+    <th>Responsibilities</th>
+  </tr>
+  <tr>
+    <td><strong>Technical Lead</strong></td>
+    <td>1.0</td>
+    <td>Weeks 1-20</td>
+    <td>Architecture, code reviews, technical decisions</td>
+  </tr>
+  <tr>
+    <td><strong>EDS Developer (Senior)</strong></td>
+    <td>2.0</td>
+    <td>Weeks 1-16</td>
+    <td>Block development, JS/CSS implementation</td>
+  </tr>
+  <tr>
+    <td><strong>EDS Developer (Mid)</strong></td>
+    <td>1.0</td>
+    <td>Weeks 3-18</td>
+    <td>Block development, content migration support</td>
+  </tr>
+  <tr>
+    <td><strong>Content Strategist</strong></td>
+    <td>1.0</td>
+    <td>Weeks 1-20</td>
+    <td>Content mapping, author training, QA</td>
+  </tr>
+  <tr>
+    <td><strong>Content Author</strong></td>
+    <td>2.0</td>
+    <td>Weeks 8-18</td>
+    <td>Page migration, content entry</td>
+  </tr>
+  <tr>
+    <td><strong>QA Engineer</strong></td>
+    <td>1.0</td>
+    <td>Weeks 12-20</td>
+    <td>Testing, accessibility, validation</td>
+  </tr>
+  <tr>
+    <td><strong>Project Manager</strong></td>
+    <td>0.5</td>
+    <td>Weeks 1-20</td>
+    <td>Coordination, stakeholder management</td>
+  </tr>
+  <tr>
+    <td><strong>UX/Design Support</strong></td>
+    <td>0.5</td>
+    <td>Weeks 1-8</td>
+    <td>Design system extraction, visual QA</td>
+  </tr>
+</table>
+
+<h3>Extended Team (Part-Time)</h3>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Hours/Week</th>
+    <th>Duration</th>
+    <th>Responsibilities</th>
+  </tr>
+  <tr>
+    <td>MLR/Regulatory Reviewer</td>
+    <td>8</td>
+    <td>Weeks 16-20</td>
+    <td>Compliance review, ISI validation</td>
+  </tr>
+  <tr>
+    <td>SEO Specialist</td>
+    <td>4</td>
+    <td>Weeks 14-20</td>
+    <td>Redirect mapping, metadata validation</td>
+  </tr>
+  <tr>
+    <td>DevOps/Infrastructure</td>
+    <td>4</td>
+    <td>Weeks 1-4, 17-20</td>
+    <td>Repo setup, deployment config</td>
+  </tr>
+  <tr>
+    <td>Analytics Specialist</td>
+    <td>4</td>
+    <td>Weeks 15-20</td>
+    <td>Tracking implementation, validation</td>
+  </tr>
+</table>
+
+<h3>Resource Loading by Phase</h3>
+
+<table>
+  <tr>
+    <th>Phase</th>
+    <th>Developers</th>
+    <th>Content</th>
+    <th>QA</th>
+    <th>Other</th>
+    <th>Total FTE</th>
+  </tr>
+  <tr>
+    <td>Phase 1 (Wk 1-4)</td>
+    <td>3.0</td>
+    <td>1.0</td>
+    <td>0</td>
+    <td>1.5</td>
+    <td><strong>5.5</strong></td>
+  </tr>
+  <tr>
+    <td>Phase 2 (Wk 5-8)</td>
+    <td>3.0</td>
+    <td>1.0</td>
+    <td>0</td>
+    <td>1.0</td>
+    <td><strong>5.0</strong></td>
+  </tr>
+  <tr>
+    <td>Phase 3 (Wk 9-16)</td>
+    <td>2.0</td>
+    <td>3.0</td>
+    <td>0.5</td>
+    <td>0.5</td>
+    <td><strong>6.0</strong></td>
+  </tr>
+  <tr>
+    <td>Phase 4 (Wk 17-20)</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td>1.5</td>
+    <td><strong>4.5</strong></td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>Visual Timeline</h2>
+
+<div class="timeline-visual">Week:  1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20
+       |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+Sprint:  1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10  |
+       |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+Phase: |-- Phase 1 ---|--- Phase 2 ---|------------ Phase 3 ------------|-- Phase 4 --|
+       |  Foundation  | Block Library |       Content Migration         |Test & Launch|
+
+Milestones:
+  Week 4:  ★ Design system complete, core blocks ready
+  Week 8:  ★ Full block library complete (18-22 blocks)
+  Week 12: ★ 50% content migrated (AD, RA, shared)
+  Week 16: ★ 100% content migrated
+  Week 18: ★ QA complete, MLR approved
+  Week 20: ★ GO-LIVE</div>
+
+<h2>Phase 1: Foundation (Sprints 1-2)</h2>
+
+<div class="sprint-header">
+  <h4>Sprint 1 (Weeks 1-2): Project Setup & Design System</h4>
+  <p>Goal: Establish EDS infrastructure and extract design tokens</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (1.0), Sr Dev (2.0), Content Strategist (1.0), UX (0.5), PM (0.5)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Create GitHub repository with EDS boilerplate</td><td>Tech Lead</td><td>4</td></tr>
+  <tr><td>Configure Sidekick and admin setup</td><td>Tech Lead</td><td>4</td></tr>
+  <tr><td>Analyze RINVOQ.com design system</td><td>UX</td><td>16</td></tr>
+  <tr><td>Extract color palette and create CSS variables</td><td>Sr Dev 1</td><td>12</td></tr>
+  <tr><td>Extract typography (fonts, sizes, weights)</td><td>Sr Dev 2</td><td>12</td></tr>
+  <tr><td>Create styles.css foundation</td><td>Sr Dev 1</td><td>16</td></tr>
+  <tr><td>Inventory all page templates</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>Inventory all component patterns</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>Create block mapping document</td><td>Content Strategist</td><td>12</td></tr>
+  <tr><td>Set up Google Drive/SharePoint structure</td><td>Content Strategist</td><td>4</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 1 Deliverables</h5>
+  <ul>
+    <li>EDS repository configured and accessible</li>
+    <li>Design tokens documented (colors, typography, spacing)</li>
+    <li>styles.css with CSS custom properties</li>
+    <li>Complete component/block inventory</li>
+    <li>Block mapping spreadsheet</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 40 | <strong>Hours:</strong> 124</p>
+
+<div class="sprint-header">
+  <h4>Sprint 2 (Weeks 3-4): Core Blocks - Navigation & Footer</h4>
+  <p>Goal: Build header, footer, and ISI blocks</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (1.0), Sr Dev (2.0), Mid Dev (1.0), Content Strategist (1.0), UX (0.5)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Analyze header/mega-menu structure</td><td>Sr Dev 1</td><td>8</td></tr>
+  <tr><td>Build header block (desktop)</td><td>Sr Dev 1</td><td>24</td></tr>
+  <tr><td>Build header block (mobile responsive)</td><td>Sr Dev 1</td><td>16</td></tr>
+  <tr><td>Build mega-menu navigation</td><td>Sr Dev 2</td><td>24</td></tr>
+  <tr><td>Implement condition switcher logic</td><td>Sr Dev 2</td><td>12</td></tr>
+  <tr><td>Build footer block</td><td>Mid Dev</td><td>16</td></tr>
+  <tr><td>Build utility nav (top bar)</td><td>Mid Dev</td><td>8</td></tr>
+  <tr><td>Build ISI sticky footer block</td><td>Sr Dev 1</td><td>16</td></tr>
+  <tr><td>Build ISI expandable content</td><td>Sr Dev 2</td><td>12</td></tr>
+  <tr><td>Create nav.md and footer.md content</td><td>Content Strategist</td><td>12</td></tr>
+  <tr><td>Visual QA and cross-browser testing</td><td>UX/Tech Lead</td><td>16</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 2 Deliverables</h5>
+  <ul>
+    <li>Header block with mega-menu (responsive)</li>
+    <li>Footer block</li>
+    <li>ISI sticky footer with expand/collapse</li>
+    <li>Utility navigation bar</li>
+    <li>nav.md and footer.md authored</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 45 | <strong>Hours:</strong> 172</p>
+
+<div class="page-break"></div>
+
+<h2>Phase 2: Block Library (Sprints 3-4)</h2>
+
+<div class="sprint-header">
+  <h4>Sprint 3 (Weeks 5-6): Hero & Content Blocks</h4>
+  <p>Goal: Build hero variants and core content blocks</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (0.5), Sr Dev (2.0), Mid Dev (1.0), Content Strategist (1.0)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Build hero block (image background)</td><td>Sr Dev 1</td><td>16</td></tr>
+  <tr><td>Build hero block (video background)</td><td>Sr Dev 1</td><td>20</td></tr>
+  <tr><td>Build hero block (animated text)</td><td>Sr Dev 2</td><td>16</td></tr>
+  <tr><td>Build condition selector block</td><td>Sr Dev 2</td><td>20</td></tr>
+  <tr><td>Build cards block (standard)</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>Build cards block (patient stories)</td><td>Mid Dev</td><td>16</td></tr>
+  <tr><td>Build results callout block</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>Build statistics/counter block</td><td>Sr Dev 1</td><td>8</td></tr>
+  <tr><td>Build columns block (2-col, 3-col)</td><td>Mid Dev</td><td>8</td></tr>
+  <tr><td>Build CTA button styles</td><td>Sr Dev 2</td><td>8</td></tr>
+  <tr><td>Document block usage in library</td><td>Content Strategist</td><td>20</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 3 Deliverables</h5>
+  <ul>
+    <li>Hero block (3 variants: image, video, animated)</li>
+    <li>Condition selector block</li>
+    <li>Cards block (2 variants)</li>
+    <li>Results callout block</li>
+    <li>Statistics/counter block</li>
+    <li>Columns block</li>
+    <li>Block library documentation</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 42 | <strong>Hours:</strong> 156</p>
+
+<div class="sprint-header">
+  <h4>Sprint 4 (Weeks 7-8): Interactive & Media Blocks</h4>
+  <p>Goal: Build quiz, video, accordion, and form blocks</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (0.5), Sr Dev (2.0), Mid Dev (1.0), Content Strategist (1.0), UX (0.5)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Build video player block</td><td>Sr Dev 1</td><td>16</td></tr>
+  <tr><td>Build video testimonial block</td><td>Sr Dev 1</td><td>12</td></tr>
+  <tr><td>Build accordion/FAQ block</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>Build tabs block</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>Build quiz block framework</td><td>Sr Dev 2</td><td>24</td></tr>
+  <tr><td>Build RAPID3 calculator logic</td><td>Sr Dev 2</td><td>16</td></tr>
+  <tr><td>Build poll/quick question block</td><td>Sr Dev 1</td><td>8</td></tr>
+  <tr><td>Build email signup form block</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>Build find-a-doctor block (API integration)</td><td>Sr Dev 1</td><td>20</td></tr>
+  <tr><td>Build recipe card block</td><td>Mid Dev</td><td>8</td></tr>
+  <tr><td>Final block library QA</td><td>UX</td><td>12</td></tr>
+  <tr><td>Author training materials</td><td>Content Strategist</td><td>20</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 4 Deliverables</h5>
+  <ul>
+    <li>Video player & testimonial blocks</li>
+    <li>Accordion/FAQ and Tabs blocks</li>
+    <li>Quiz/assessment block with RAPID3</li>
+    <li>Poll block</li>
+    <li>Form/signup block</li>
+    <li>Find-a-doctor block</li>
+    <li>Recipe card block</li>
+    <li><strong>Complete block library (18-22 blocks)</strong></li>
+    <li>Author training materials</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 48 | <strong>Hours:</strong> 180</p>
+
+<div class="page-break"></div>
+
+<h2>Phase 3: Content Migration (Sprints 5-8)</h2>
+
+<div class="sprint-header">
+  <h4>Sprint 5 (Weeks 9-10): Homepage & Shared Resources</h4>
+  <p>Goal: Migrate homepage and 14 shared resource pages</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (0.5), Sr Dev (1.0), Mid Dev (1.0), Content Strategist (1.0), Authors (2.0)</p>
+
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Pages</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Homepage</td><td>1</td><td>Author 1 + Sr Dev</td><td>28</td></tr>
+  <tr><td>RINVOQ Complete, Cost & Savings</td><td>2</td><td>Author 1</td><td>16</td></tr>
+  <tr><td>Insurance, Preparation, Routine</td><td>3</td><td>Author 2</td><td>18</td></tr>
+  <tr><td>Nurse Ambassador, Caregiver, Living With</td><td>3</td><td>Authors</td><td>18</td></tr>
+  <tr><td>App, Side Effects, COVID-19</td><td>3</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>Sign-up, Search pages</td><td>2</td><td>Mid Dev</td><td>16</td></tr>
+  <tr><td>QA all pages + block refinements</td><td>-</td><td>All</td><td>28</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 5 Deliverables</h5>
+  <ul>
+    <li>Homepage migrated and validated</li>
+    <li>12 shared resource pages migrated</li>
+    <li>Utility pages (search, signup) migrated</li>
+  </ul>
+</div>
+
+<p><strong>Pages Migrated:</strong> 15 | <strong>Story Points:</strong> 38 | <strong>Hours:</strong> 142</p>
+
+<div class="sprint-header">
+  <h4>Sprint 6 (Weeks 11-12): Atopic Dermatitis & Rheumatoid Arthritis</h4>
+  <p>Goal: Migrate two largest condition sections (24 pages)</p>
+</div>
+
+<p><strong>Team:</strong> Sr Dev (1.0), Mid Dev (1.0), Content Strategist (1.0), Authors (2.0), QA (0.5)</p>
+
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Pages</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Atopic Dermatitis (full section)</td><td>12</td><td>Author 1</td><td>76</td></tr>
+  <tr><td>Rheumatoid Arthritis (full section)</td><td>12</td><td>Author 2</td><td>76</td></tr>
+  <tr><td>RAPID3 Calculator (complex)</td><td>-</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>QA both sections</td><td>-</td><td>QA</td><td>32</td></tr>
+  <tr><td>Bug fixes and refinements</td><td>-</td><td>Sr Dev</td><td>20</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 6 Deliverables</h5>
+  <ul>
+    <li>Atopic Dermatitis section (12 pages)</li>
+    <li>Rheumatoid Arthritis section (12 pages)</li>
+    <li>RAPID3 calculator functional</li>
+    <li><strong>~50% of content migrated</strong></li>
+  </ul>
+</div>
+
+<p><strong>Pages Migrated:</strong> 24 | <strong>Story Points:</strong> 50 | <strong>Hours:</strong> 208</p>
+
+<div class="sprint-header">
+  <h4>Sprint 7 (Weeks 13-14): GI Conditions (UC & Crohn's)</h4>
+  <p>Goal: Migrate Ulcerative Colitis and Crohn's Disease (29 pages)</p>
+</div>
+
+<p><strong>Team:</strong> Sr Dev (1.0), Mid Dev (1.0), Content Strategist (1.0), Authors (2.0), QA (0.5)</p>
+
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Pages</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Ulcerative Colitis (full section)</td><td>15</td><td>Author 1</td><td>98</td></tr>
+  <tr><td>Crohn's Disease (full section)</td><td>14</td><td>Author 2</td><td>92</td></tr>
+  <tr><td>Podcast page (complex)</td><td>-</td><td>Mid Dev</td><td>12</td></tr>
+  <tr><td>QA both sections</td><td>-</td><td>QA</td><td>32</td></tr>
+  <tr><td>Bug fixes</td><td>-</td><td>Sr Dev</td><td>16</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 7 Deliverables</h5>
+  <ul>
+    <li>Ulcerative Colitis section (15 pages)</li>
+    <li>Crohn's Disease section (14 pages)</li>
+    <li>Podcast player functional</li>
+    <li>Recipe cards functional</li>
+  </ul>
+</div>
+
+<p><strong>Pages Migrated:</strong> 29 | <strong>Story Points:</strong> 52 | <strong>Hours:</strong> 234</p>
+
+<div class="sprint-header">
+  <h4>Sprint 8 (Weeks 15-16): Remaining Conditions</h4>
+  <p>Goal: Complete all remaining condition sections (37 pages)</p>
+</div>
+
+<p><strong>Team:</strong> Sr Dev (1.0), Mid Dev (1.0), Content Strategist (1.0), Authors (2.0), QA (1.0)</p>
+
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Pages</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Psoriatic Arthritis</td><td>10</td><td>Author 1</td><td>40</td></tr>
+  <tr><td>Ankylosing Spondylitis</td><td>8</td><td>Author 1</td><td>32</td></tr>
+  <tr><td>Nr-axSpA</td><td>8</td><td>Author 2</td><td>32</td></tr>
+  <tr><td>Giant Cell Arteritis</td><td>6</td><td>Author 2</td><td>24</td></tr>
+  <tr><td>pJIA/JPsA (Pediatric)</td><td>5</td><td>Author 2</td><td>20</td></tr>
+  <tr><td>QA all sections</td><td>-</td><td>QA</td><td>46</td></tr>
+  <tr><td>Cross-section link validation</td><td>-</td><td>Content Strategist</td><td>12</td></tr>
+  <tr><td>ISI consistency check</td><td>-</td><td>Content Strategist</td><td>8</td></tr>
+  <tr><td>Bug fixes and refinements</td><td>-</td><td>Sr Dev</td><td>36</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 8 Deliverables</h5>
+  <ul>
+    <li>Psoriatic Arthritis section (10 pages)</li>
+    <li>Ankylosing Spondylitis section (8 pages)</li>
+    <li>Nr-axSpA section (8 pages)</li>
+    <li>Giant Cell Arteritis section (6 pages)</li>
+    <li>pJIA/JPsA section (5 pages)</li>
+    <li><strong>100% content migrated</strong></li>
+    <li>All cross-links validated</li>
+  </ul>
+</div>
+
+<p><strong>Pages Migrated:</strong> 37 | <strong>Story Points:</strong> 55 | <strong>Hours:</strong> 250</p>
+
+<div class="page-break"></div>
+
+<h2>Phase 4: Testing & Launch (Sprints 9-10)</h2>
+
+<div class="sprint-header">
+  <h4>Sprint 9 (Weeks 17-18): Comprehensive Testing</h4>
+  <p>Goal: Complete QA, accessibility audit, and regulatory review</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (0.5), Sr Dev (1.0), Content Strategist (1.0), QA (1.0), SEO (0.5), MLR (1.0)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Full regression testing</td><td>QA</td><td>40</td></tr>
+  <tr><td>Cross-browser testing (Chrome, Safari, Firefox, Edge)</td><td>QA</td><td>16</td></tr>
+  <tr><td>Mobile device testing (iOS, Android)</td><td>QA</td><td>16</td></tr>
+  <tr><td>Accessibility audit (WCAG 2.1 AA)</td><td>QA</td><td>24</td></tr>
+  <tr><td>Fix accessibility issues</td><td>Sr Dev</td><td>24</td></tr>
+  <tr><td>Performance testing & optimizations</td><td>Tech Lead + Sr Dev</td><td>24</td></tr>
+  <tr><td>SEO audit & redirect mapping</td><td>SEO</td><td>28</td></tr>
+  <tr><td>MLR regulatory review</td><td>MLR</td><td>40</td></tr>
+  <tr><td>Address MLR feedback</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>ISI final validation</td><td>MLR</td><td>8</td></tr>
+  <tr><td>Analytics implementation & validation</td><td>Sr Dev + Analytics</td><td>20</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 9 Deliverables</h5>
+  <ul>
+    <li>All critical/major bugs fixed</li>
+    <li>Accessibility certification (WCAG 2.1 AA)</li>
+    <li>Performance score 95+ on all pages</li>
+    <li>Redirect map complete</li>
+    <li><strong>MLR approval obtained</strong></li>
+    <li>Analytics tracking validated</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 48 | <strong>Hours:</strong> 272</p>
+
+<div class="sprint-header">
+  <h4>Sprint 10 (Weeks 19-20): Launch Preparation & Go-Live</h4>
+  <p>Goal: Final preparations and production launch</p>
+</div>
+
+<p><strong>Team:</strong> Tech Lead (1.0), Sr Dev (1.0), Content Strategist (1.0), QA (1.0), PM (0.5), DevOps (0.5)</p>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Owner</th>
+    <th>Hours</th>
+  </tr>
+  <tr><td>Final bug fixes</td><td>Sr Dev</td><td>24</td></tr>
+  <tr><td>Content freeze and final review</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>Staging environment validation</td><td>QA</td><td>16</td></tr>
+  <tr><td>Load testing & CDN configuration</td><td>DevOps</td><td>16</td></tr>
+  <tr><td>DNS cutover planning & rollback procedures</td><td>Tech Lead</td><td>8</td></tr>
+  <tr><td>Go-live checklist & stakeholder sign-off</td><td>PM</td><td>12</td></tr>
+  <tr style="background: #fff3cd;"><td><strong>SOFT LAUNCH (10% traffic)</strong></td><td>Tech Lead</td><td>4</td></tr>
+  <tr><td>Soft launch monitoring (24h)</td><td>QA</td><td>8</td></tr>
+  <tr><td>Soft launch issue resolution</td><td>Sr Dev</td><td>16</td></tr>
+  <tr style="background: #d4edda;"><td><strong>FULL LAUNCH (100% traffic)</strong></td><td>Tech Lead</td><td>4</td></tr>
+  <tr><td>Post-launch monitoring (48h)</td><td>QA</td><td>16</td></tr>
+  <tr><td>Post-launch issue resolution</td><td>Sr Dev</td><td>16</td></tr>
+  <tr><td>Author training sessions</td><td>Content Strategist</td><td>16</td></tr>
+  <tr><td>Documentation handoff & retrospective</td><td>Content Strategist + PM</td><td>12</td></tr>
+</table>
+
+<div class="deliverables">
+  <h5>Sprint 10 Deliverables</h5>
+  <ul>
+    <li><strong>All pages live on production</strong></li>
+    <li>Redirects active and validated</li>
+    <li>Zero critical issues post-launch</li>
+    <li>Authors trained on new system</li>
+    <li>Documentation complete</li>
+    <li>Project closed</li>
+  </ul>
+</div>
+
+<p><strong>Story Points:</strong> 45 | <strong>Hours:</strong> 184</p>
+
+<div class="page-break"></div>
+
+<h2>Budget Summary</h2>
+
+<h3>Labor Costs</h3>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Rate/Hr</th>
+    <th>Hours</th>
+    <th>Total</th>
+  </tr>
+  <tr><td>Technical Lead</td><td>$175</td><td>320</td><td>$56,000</td></tr>
+  <tr><td>Senior EDS Developer (×2)</td><td>$150</td><td>960</td><td>$144,000</td></tr>
+  <tr><td>Mid EDS Developer</td><td>$125</td><td>480</td><td>$60,000</td></tr>
+  <tr><td>Content Strategist</td><td>$100</td><td>320</td><td>$32,000</td></tr>
+  <tr><td>Content Author (×2)</td><td>$75</td><td>480</td><td>$36,000</td></tr>
+  <tr><td>QA Engineer</td><td>$100</td><td>240</td><td>$24,000</td></tr>
+  <tr><td>Project Manager</td><td>$125</td><td>160</td><td>$20,000</td></tr>
+  <tr><td>UX/Design Support</td><td>$125</td><td>80</td><td>$10,000</td></tr>
+  <tr><td>MLR Reviewer</td><td>$150</td><td>64</td><td>$9,600</td></tr>
+  <tr><td>SEO Specialist</td><td>$100</td><td>48</td><td>$4,800</td></tr>
+  <tr><td>DevOps</td><td>$150</td><td>48</td><td>$7,200</td></tr>
+  <tr><td>Analytics Specialist</td><td>$125</td><td>32</td><td>$4,000</td></tr>
+  <tr style="background: #e8f5e9; font-weight: bold;"><td>Labor Subtotal</td><td></td><td>3,232</td><td>$407,600</td></tr>
+</table>
+
+<h3>Other Costs</h3>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+  <tr><td>Contingency (15%)</td><td>$61,140</td></tr>
+  <tr><td>Tools & Licenses</td><td>$5,000</td></tr>
+  <tr><td>Testing Devices</td><td>$2,000</td></tr>
+  <tr><td>Training Materials</td><td>$3,000</td></tr>
+  <tr style="background: #e8f5e9; font-weight: bold;"><td>Other Subtotal</td><td>$71,140</td></tr>
+</table>
+
+<div class="budget-highlight">
+  <div class="label">Total Project Budget</div>
+  <div class="amount">$478,740</div>
+  <div class="label" style="margin-top: 8px;">ROI: Payback in 4-6 months | 5-Year Savings: $2.55M</div>
+</div>
+
+<h2>Risk Register</h2>
+
+<table>
+  <tr>
+    <th>Risk</th>
+    <th>Probability</th>
+    <th>Impact</th>
+    <th>Mitigation</th>
+  </tr>
+  <tr class="risk-medium"><td>Complex quiz/calculator blocks take longer</td><td>Medium</td><td>Medium</td><td>Spike in Sprint 4; allocate buffer</td></tr>
+  <tr class="risk-medium"><td>MLR review delays</td><td>Medium</td><td>High</td><td>Engage MLR early (Sprint 8); parallel review</td></tr>
+  <tr class="risk-low"><td>Content volume higher than estimated</td><td>Low</td><td>Medium</td><td>Add author capacity in Sprint 7-8</td></tr>
+  <tr class="risk-medium"><td>Third-party API integration issues</td><td>Medium</td><td>Medium</td><td>Early POC for find-a-doctor</td></tr>
+  <tr class="risk-low"><td>Browser compatibility issues</td><td>Low</td><td>Medium</td><td>Progressive enhancement approach</td></tr>
+  <tr class="risk-medium"><td>Stakeholder scope creep</td><td>Medium</td><td>Medium</td><td>Strict change control process</td></tr>
+  <tr class="risk-low"><td>Resource availability</td><td>Low</td><td>High</td><td>Cross-train team members</td></tr>
+</table>
+
+<h2>Success Criteria</h2>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Target</th>
+    <th>Measurement</th>
+  </tr>
+  <tr><td>All pages migrated</td><td>~150 pages</td><td>Content audit</td></tr>
+  <tr><td>Page load time</td><td>&lt;0.5s</td><td>Lighthouse</td></tr>
+  <tr><td>Lighthouse Performance</td><td>95+</td><td>Automated tests</td></tr>
+  <tr><td>Accessibility</td><td>WCAG 2.1 AA</td><td>axe audit</td></tr>
+  <tr><td>Redirect coverage</td><td>100%</td><td>Crawl validation</td></tr>
+  <tr><td>MLR approval</td><td>Obtained</td><td>Sign-off document</td></tr>
+  <tr><td>Zero critical bugs</td><td>0 P1 issues</td><td>Bug tracker</td></tr>
+  <tr><td>Author training</td><td>100% completion</td><td>Training records</td></tr>
+</table>
+
+<div class="footer">
+  <p>Document Version: 1.0 | Project: RINVOQ.com EDS Migration | Generated: January 2026</p>
+</div>
+
+</body>
+</html>

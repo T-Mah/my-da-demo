@@ -1,0 +1,39 @@
+Phase,Site,Section,Page Name,URL Path,Template Type,Language,Priority,Est. Complexity,Notes
+Phase 2,abbvie.com (Global),All Sections,German Site,/de-de/*,all-templates,de-DE,P1,Medium,~350 pages - German
+Phase 2,abbvie.com (Global),All Sections,French Site,/fr-fr/*,all-templates,fr-FR,P1,Medium,~350 pages - French
+Phase 2,abbvie.com (Global),All Sections,Spanish Site,/es-es/*,all-templates,es-ES,P1,Medium,~350 pages - Spanish (Spain)
+Phase 2,abbvie.com (Global),All Sections,Italian Site,/it-it/*,all-templates,it-IT,P1,Medium,~350 pages - Italian
+Phase 2,abbvie.com (Global),All Sections,Portuguese (Brazil) Site,/pt-br/*,all-templates,pt-BR,P1,Medium,~350 pages - Portuguese (Brazil)
+Phase 2,abbvie.com (Global),All Sections,Japanese Site,/ja-jp/*,all-templates,ja-JP,P1,High,~350 pages - Japanese
+Phase 2,abbvie.com (Global),All Sections,Chinese (Simplified) Site,/zh-cn/*,all-templates,zh-CN,P1,High,~350 pages - Chinese (Simplified)
+Phase 2,abbvie.com (Global),All Sections,Korean Site,/ko-kr/*,all-templates,ko-KR,P1,High,~350 pages - Korean
+Phase 2,abbvie.com (Global),All Sections,Russian Site,/ru-ru/*,all-templates,ru-RU,P2,Medium,~350 pages - Russian
+Phase 2,abbvie.com (Global),All Sections,Polish Site,/pl-pl/*,all-templates,pl-PL,P2,Medium,~350 pages - Polish
+Phase 2,abbvie.com (Global),All Sections,Dutch Site,/nl-nl/*,all-templates,nl-NL,P2,Medium,~350 pages - Dutch
+Phase 2,abbvie.com (Global),All Sections,Turkish Site,/tr-tr/*,all-templates,tr-TR,P2,Medium,~350 pages - Turkish
+Phase 2,abbvie.com (Global),All Sections,Arabic Site,/ar-sa/*,all-templates,ar-SA,P2,High,~350 pages - Arabic (RTL support)
+Phase 2,abbvie.com (Global),All Sections,Hebrew Site,/he-il/*,all-templates,he-IL,P2,High,~350 pages - Hebrew (RTL support)
+Phase 2,abbvie.com (Global),All Sections,Czech Site,/cs-cz/*,all-templates,cs-CZ,P2,Medium,~350 pages - Czech
+Phase 2,abbvie.com (Global),All Sections,Hungarian Site,/hu-hu/*,all-templates,hu-HU,P2,Medium,~350 pages - Hungarian
+Phase 2,abbvie.com (Global),All Sections,Greek Site,/el-gr/*,all-templates,el-GR,P2,Medium,~350 pages - Greek
+Phase 2,abbvie.com (Global),All Sections,Swedish Site,/sv-se/*,all-templates,sv-SE,P2,Medium,~350 pages - Swedish
+Phase 2,abbvie.com (Global),All Sections,Norwegian Site,/nb-no/*,all-templates,nb-NO,P2,Medium,~350 pages - Norwegian
+Phase 2,abbvie.com (Global),All Sections,Danish Site,/da-dk/*,all-templates,da-DK,P2,Medium,~350 pages - Danish
+Phase 2,abbvie.com (Global),All Sections,Finnish Site,/fi-fi/*,all-templates,fi-FI,P2,Medium,~350 pages - Finnish
+Phase 2,abbvie.com (Global),All Sections,Thai Site,/th-th/*,all-templates,th-TH,P2,High,~350 pages - Thai
+Phase 2,abbvie.com (Global),All Sections,Vietnamese Site,/vi-vn/*,all-templates,vi-VN,P2,Medium,~350 pages - Vietnamese
+Phase 2,abbvie.com (Global),All Sections,Indonesian Site,/id-id/*,all-templates,id-ID,P2,Medium,~350 pages - Indonesian
+Phase 2,abbvie.com (Global),All Sections,Malaysian Site,/ms-my/*,all-templates,ms-MY,P2,Medium,~350 pages - Malay
+Phase 2,abbvie.com (Global),All Sections,Philippines Site,/en-ph/*,all-templates,en-PH,P2,Low,~350 pages - English (Philippines)
+Phase 2,abbvie.com (Global),All Sections,Singapore Site,/en-sg/*,all-templates,en-SG,P2,Low,~350 pages - English (Singapore)
+Phase 2,abbvie.com (Global),All Sections,Hong Kong Site,/zh-hk/*,all-templates,zh-HK,P2,High,~350 pages - Chinese (Traditional)
+Phase 2,abbvie.com (Global),All Sections,Taiwan Site,/zh-tw/*,all-templates,zh-TW,P2,High,~350 pages - Chinese (Traditional)
+Phase 2,abbvie.com (Global),All Sections,India Site,/en-in/*,all-templates,en-IN,P2,Low,~350 pages - English (India)
+Phase 2,abbvie.com (Global),All Sections,Australia Site,/en-au/*,all-templates,en-AU,P2,Low,~350 pages - English (Australia)
+Phase 2,abbvie.com (Global),All Sections,UK Site,/en-gb/*,all-templates,en-GB,P1,Low,~350 pages - English (UK)
+Phase 2,abbvie.com (Global),All Sections,Canada English Site,/en-ca/*,all-templates,en-CA,P1,Low,~350 pages - English (Canada)
+Phase 2,abbvie.com (Global),All Sections,Canada French Site,/fr-ca/*,all-templates,fr-CA,P1,Medium,~350 pages - French (Canada)
+Phase 2,abbvie.com (Global),All Sections,Mexico Site,/es-mx/*,all-templates,es-MX,P1,Medium,~350 pages - Spanish (Mexico)
+Phase 2,abbvie.com (Global),All Sections,Argentina Site,/es-ar/*,all-templates,es-AR,P2,Medium,~350 pages - Spanish (Argentina)
+Phase 2,abbvie.com (Global),All Sections,Colombia Site,/es-co/*,all-templates,es-CO,P2,Medium,~350 pages - Spanish (Colombia)
+Phase 2,abbvie.com (Global),All Sections,Chile Site,/es-cl/*,all-templates,es-CL,P2,Medium,~350 pages - Spanish (Chile)

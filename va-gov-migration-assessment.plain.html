@@ -1,0 +1,811 @@
+<div><h1 id="vagov--edge-delivery-services-migration-assessment">VA.gov → Edge Delivery Services Migration Assessment</h1></div>
+<div><h2 id="site-scope--scale">1. Site Scope &#x26; Scale</h2><p>Based on a live scan of VA.gov's sitemaps, page structures, and content patterns:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="category"><div><div><strong>Sitemap URLs (indexed)</strong></div><div>~2,150+ across 2 sub-sitemaps</div></div><div><div><strong>Benefit hub pages</strong></div><div>~12 top-level hubs (Health Care, Disability, Education, Pension, Housing, Life Insurance, Burials, Records, Careers, Service Members, Family, VA Dept Info)</div></div><div><div><strong>Content detail pages</strong></div><div>~200-300 (eligibility, how-to, FAQ pages under each hub)</div></div><div><div><strong>Resource/support articles</strong></div><div>~75+ (tagged by topic, dynamic loading)</div></div><div><div><strong>Facility pages (VAMC systems)</strong></div><div>~170+ VA Medical Center systems, each with ~20-30 sub-pages = ~3,500-5,000 facility pages</div></div><div><div><strong>Event pages</strong></div><div>~950+ (dynamically generated, facility-specific)</div></div><div><div><strong>Forms/applications (React apps)</strong></div><div>~30-40 multi-step form wizards (10-10EZ, 526EZ, etc.)</div></div><div><div><strong>Tools/applications</strong></div><div>~10-15 (Find a Location with map, GI Bill Comparison Tool, Facility Locator, Claim Status Tracker)</div></div><div><div><strong>Total estimated unique pages</strong></div><div><strong>~6,000-8,000+</strong></div></div></div><h3 id="what-is-not-migratable-to-eds-out-of-scope">What is NOT Migratable to EDS (Out of Scope)</h3><p>These are JavaScript-heavy web applications that would need to remain as standalone React apps or be rebuilt separately:</p><ul>
+<li><strong>Multi-step form wizards</strong> (health care applications, disability claims, education benefits)</li>
+<li><strong>Facility Locator</strong> (map-based interactive application)</li>
+<li><strong>GI Bill Comparison Tool</strong> (data-driven application)</li>
+<li><strong>Claim/Appeal Status Tracker</strong> (authenticated, API-driven)</li>
+<li><strong>My HealtheVet portal</strong> (separate authenticated application)</li>
+<li><strong>My VA dashboard</strong> (personalized, authenticated)</li>
+</ul><p><strong>Estimated non-migratable application pages: ~40-50 distinct apps</strong></p><p>These would need custom Edge Delivery blocks or embed strategies, or remain as micro-frontends.</p></div>
+<div><h2 id="page-template-taxonomy">2. Page Template Taxonomy</h2><p>7 distinct page templates were identified across the site:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="template"><div><div><strong>Homepage</strong></div><div>1</div><div>High</div><div>Good - hero, cards, search, news blocks</div></div><div><div><strong>Benefit Hub</strong></div><div>12</div><div>Medium</div><div>Excellent - structured content, link lists</div></div><div><div><strong>Content Detail</strong></div><div>~250</div><div>Low-Medium</div><div>Excellent - text-heavy, sidebar nav</div></div><div><div><strong>Resource Article</strong></div><div>~75</div><div>Low</div><div>Excellent - simple content + feedback widget</div></div><div><div><strong>Facility System</strong></div><div>~170 systems</div><div>Medium-High</div><div>Good - location cards, services, stories</div></div><div><div><strong>Facility Sub-page</strong></div><div>~3,500+</div><div>Low-Medium</div><div>Good - templated content</div></div><div><div><strong>Event Page</strong></div><div>~950</div><div>Low</div><div>Excellent - structured metadata, simple layout</div></div></div><h3 id="block-inventory-needed">Block Inventory Needed</h3><p>From the scan, these EDS blocks would be required:</p><ul>
+<li><strong>Hero</strong> (homepage, with search variant)</li>
+<li><strong>Cards</strong> (benefit categories, 3-column with icons)</li>
+<li><strong>Link List / Hub Navigation</strong> (benefit hubs, sidebar navigation)</li>
+<li><strong>Accordion/FAQ</strong> (eligibility pages, expandable sections)</li>
+<li><strong>Location Card</strong> (facility address, phone, hours)</li>
+<li><strong>News/Story Teaser</strong> (featured stories with images)</li>
+<li><strong>CTA Banner</strong> (Crisis Line, account creation prompts)</li>
+<li><strong>Contact Block</strong> (phone numbers, TTY, messaging links)</li>
+<li><strong>Breadcrumb</strong> (multi-level hierarchy)</li>
+<li><strong>Feedback Widget</strong> (page rating component)</li>
+<li><strong>Email Signup</strong> (newsletter subscription)</li>
+<li><strong>Table</strong> (rate tables, comparison data)</li>
+<li><strong>Alert/Banner</strong> (government site banner, service alerts)</li>
+<li><strong>Search</strong> (site search with category filters)</li>
+<li><strong>Related Benefits</strong> (cross-linking cards at page bottom)</li>
+<li><strong>Mega Menu Navigation</strong> (complex multi-column dropdown)</li>
+</ul><p><strong>Estimated: ~20-25 unique blocks, ~40-50 variants</strong></p></div>
+<div><h2 id="accessibility-assessment">3. Accessibility Assessment</h2><p>This is the <strong>highest-risk dimension</strong> of this migration. VA.gov is a federal government site subject to the strictest accessibility mandates in the United States.</p><h3 id="regulatory-requirements">Regulatory Requirements</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="standard"><div><div><strong>Section 508</strong></div><div>Federal law - mandatory compliance</div><div>Every page must pass</div></div><div><div><strong>WCAG 2.2 Level AA</strong></div><div>VA's stated target</div><div>All blocks, all states</div></div><div><div><strong>21st Century IDEA Act</strong></div><div>Digital modernization mandate</div><div>Accessibility + usability</div></div><div><div><strong>ADA Title II</strong></div><div>Applies to government digital services</div><div>Legal liability</div></div></div><h3 id="current-vagov-accessibility-features-observed">Current VA.gov Accessibility Features Observed</h3><ul>
+<li>Skip-to-content links on every page</li>
+<li>ARIA labels and roles throughout navigation</li>
+<li>Veterans Crisis Line accessible via keyboard</li>
+<li>Focus management on dynamic content</li>
+<li>TTY: 711 support referenced site-wide</li>
+<li>Language assistance in Spanish, Tagalog, and other languages</li>
+<li>508 compliance page with reporting mechanism</li>
+<li>Alt text on images</li>
+<li>Semantic HTML structure (headings, landmarks, lists)</li>
+</ul><h3 id="migration-accessibility-risks">Migration Accessibility Risks</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="risk"><div><div><strong>Mega menu keyboard navigation</strong></div><div>Critical</div><div>Complex dropdown must maintain tab order, arrow key navigation, escape-to-close</div></div><div><div><strong>Form widget accessibility</strong></div><div>Critical</div><div>If any forms are migrated, all ARIA states, error announcements, and focus management must transfer</div></div><div><div><strong>Dynamic content loading</strong></div><div>High</div><div>Current site uses async widget loading - EDS approach must announce content to screen readers</div></div><div><div><strong>Color contrast in design tokens</strong></div><div>High</div><div>VA's blue/white/red palette must maintain 4.5:1 ratios in all EDS CSS</div></div><div><div><strong>Mobile responsiveness</strong></div><div>High</div><div>Must maintain touch targets >= 44x44px</div></div><div><div><strong>PDF/document accessibility</strong></div><div>Medium</div><div>Linked VA forms must remain accessible</div></div><div><div><strong>Language switching</strong></div><div>Medium</div><div>Spanish and Tagalog content must be discoverable by assistive tech</div></div><div><div><strong>Focus management after navigation</strong></div><div>High</div><div>SPA-like interactions need focus reset on page transitions</div></div></div><h3 id="required-accessibility-qa">Required Accessibility QA</h3><p>Every migrated page and block would need:</p><ul>
+<li>Automated testing (axe-core, Lighthouse)</li>
+<li>Manual screen reader testing (JAWS, NVDA, VoiceOver)</li>
+<li>Keyboard-only navigation testing</li>
+<li>High contrast mode testing</li>
+<li>200% zoom testing</li>
+<li>Mobile assistive technology testing</li>
+</ul><p><strong>This alone represents a significant portion of the migration effort.</strong> For a federal site of this visibility, accessibility failures would be both legally and reputationally damaging.</p></div>
+<div><h2 id="wave-based-migration-plan">4. Wave-Based Migration Plan</h2><h3 id="wave-0-foundation--design-system">Wave 0: Foundation &#x26; Design System</h3><p><strong>Scope:</strong> Establish the EDS project, extract design tokens, build core blocks, set up infrastructure.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>EDS project scaffolding (boilerplate, aem.json, fstab.yaml)</div><div>S</div></div><div><div>Design token extraction (colors, typography, spacing from VA Design System - VADS)</div><div>L</div></div><div><div>Global styles.css with VA custom properties</div><div>M</div></div><div><div>Header/footer/navigation blocks (mega menu)</div><div>XL</div></div><div><div>Core blocks: Hero, Cards, CTA Banner, Alert, Breadcrumb</div><div>L</div></div><div><div>Accessibility testing framework setup</div><div>M</div></div><div><div>Content authoring guidelines documentation</div><div>M</div></div><div><div>CI/CD pipeline for preview to live promotion</div><div>M</div></div></div><p><strong>Complexity:</strong> High — the VA Design System (VADS) is a comprehensive React-based component library. Extracting it into EDS CSS custom properties and vanilla JS blocks is non-trivial.</p><h3 id="wave-1-benefit-hub-pages-pilot">Wave 1: Benefit Hub Pages (Pilot)</h3><p><strong>Scope:</strong> Migrate the 12 top-level benefit hub pages as a proof-of-concept.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Hub page template (link lists, section nav, contact block)</div><div>12</div><div>M</div></div><div><div>Hub-specific blocks (sidebar nav, related benefits)</div><div>-</div><div>M</div></div><div><div>Content migration (12 hub pages)</div><div>12</div><div>M</div></div><div><div>Accessibility audit of hub template</div><div>-</div><div>L</div></div><div><div>Stakeholder review and sign-off</div><div>-</div><div>M</div></div></div><p><strong>Why start here:</strong> Hub pages are high-traffic, structurally consistent, and provide maximum visibility into the EDS approach without touching complex applications.</p><h3 id="wave-2-content-detail-pages">Wave 2: Content Detail Pages</h3><p><strong>Scope:</strong> Migrate the ~250 content detail pages under each benefit hub.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Content detail template (with sidebar nav, accordion, tables)</div><div>~250</div><div>L</div></div><div><div>Accordion/FAQ block</div><div>-</div><div>M</div></div><div><div>Table block (rate tables, comparison data)</div><div>-</div><div>M</div></div><div><div>Feedback widget block</div><div>-</div><div>S</div></div><div><div>Bulk content migration tooling</div><div>-</div><div>L</div></div><div><div>Accessibility testing (sampling + automated)</div><div>-</div><div>L</div></div></div><h3 id="wave-3-resource--support-articles">Wave 3: Resource &#x26; Support Articles</h3><p><strong>Scope:</strong> Migrate ~75+ resource articles.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Resource article template</div><div>~75</div><div>M</div></div><div><div>Topic-based browse/filter (may need custom block)</div><div>-</div><div>M</div></div><div><div>Content migration</div><div>~75</div><div>M</div></div><div><div>Cross-linking and metadata</div><div>-</div><div>S</div></div></div><h3 id="wave-4-facility-pages-largest-wave">Wave 4: Facility Pages (Largest Wave)</h3><p><strong>Scope:</strong> Migrate ~170 VAMC system pages and their ~3,500+ sub-pages. This is the bulk of the site.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Facility system template (location cards, services, stories)</div><div>~170</div><div>L</div></div><div><div>Facility sub-page templates (about, services, programs)</div><div>~3,500</div><div>XL</div></div><div><div>Location card block with structured data</div><div>-</div><div>M</div></div><div><div>Event page template</div><div>~950</div><div>M</div></div><div><div>Bulk migration scripting (templated content)</div><div>-</div><div>XL</div></div><div><div>Per-facility content QA</div><div>-</div><div>XL</div></div><div><div>Accessibility testing (sampling strategy)</div><div>-</div><div>L</div></div></div><p><strong>Key challenge:</strong> Scale. This wave has the most pages but they are highly templated, making bulk migration scripting essential.</p><h3 id="wave-5-homepage--cross-cutting-features">Wave 5: Homepage &#x26; Cross-Cutting Features</h3><p><strong>Scope:</strong> Migrate the homepage and implement site-wide features.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Homepage migration (hero, search, news, benefit cards)</div><div>1</div><div>XL</div></div><div><div>Site search integration</div><div>-</div><div>L</div></div><div><div>Email signup block</div><div>-</div><div>S</div></div><div><div>News/blog integration (news.va.gov)</div><div>-</div><div>M</div></div><div><div>404 and error pages</div><div>-</div><div>S</div></div><div><div>Full site regression testing</div><div>-</div><div>XL</div></div></div><h3 id="wave-6-application-integration">Wave 6: Application Integration</h3><p><strong>Scope:</strong> Address the React-based tools and forms — either embed, rebuild, or integrate.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="work-item"><div><div>Strategy per application (embed vs. rebuild vs. link)</div><div>L</div></div><div><div>Facility Locator integration/embed</div><div>XL</div></div><div><div>Form application embed strategy</div><div>XL</div></div><div><div>Authentication flow integration</div><div>XL</div></div><div><div>API gateway and backend service connections</div><div>XL</div></div></div><p><strong>This wave has the highest technical risk</strong> and may not be a full migration but rather an integration strategy.</p></div>
+<div><h2 id="team-structure">5. Team Structure</h2><h3 id="core-migration-team">Core Migration Team</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="role"><div><div><strong>Technical Lead / Architect</strong></div><div>1</div><div>EDS architecture, block design, integration strategy</div></div><div><div><strong>EDS Developers</strong></div><div>3-4</div><div>Block development (JS/CSS), template creation, custom functionality</div></div><div><div><strong>Content Strategist</strong></div><div>1-2</div><div>Content mapping, authoring guidelines, information architecture</div></div><div><div><strong>Content Migration Engineers</strong></div><div>2-3</div><div>Bulk migration scripting, content transformation, metadata</div></div><div><div><strong>Accessibility Specialist</strong></div><div>2</div><div>WCAG/508 testing, remediation guidance, screen reader testing</div></div><div><div><strong>QA Engineers</strong></div><div>2</div><div>Visual regression, cross-browser, functional testing</div></div><div><div><strong>UX Designer</strong></div><div>1</div><div>Design token mapping, visual fidelity, responsive design</div></div><div><div><strong>DevOps / Infrastructure</strong></div><div>1</div><div>CI/CD, preview/live promotion, CDN configuration</div></div><div><div><strong>Project Manager</strong></div><div>1</div><div>Sprint planning, stakeholder coordination, risk management</div></div><div><div><strong>Government Stakeholder Liaison</strong></div><div>1</div><div>VA approval workflows, compliance review, change management</div></div></div><p><strong>Core team size: 15-19 people</strong></p><h3 id="extended--part-time-support">Extended / Part-Time Support</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="role"><div><div>VA Design System (VADS) expert</div><div>1</div><div>Wave 0 - design token extraction</div></div><div><div>React/Application developer</div><div>2-3</div><div>Wave 6 - application integration</div></div><div><div>Security reviewer</div><div>1</div><div>Each wave gate</div></div><div><div>Performance engineer</div><div>1</div><div>Waves 4-5 - scale testing</div></div><div><div>508 Program Office coordinator</div><div>1</div><div>All waves - compliance sign-off</div></div></div></div>
+<div><h2 id="sprint-structure">6. Sprint Structure</h2><h3 id="per-sprint-cadence">Per-Sprint Cadence</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="activity"><div><div><strong>Sprint Planning</strong></div><div>Scope page batches, assign blocks, identify risks</div></div><div><div><strong>Development</strong></div><div>Block implementation, content migration, CSS work</div></div><div><div><strong>Accessibility Check</strong></div><div>Automated axe-core scans on all new pages</div></div><div><div><strong>Visual QA</strong></div><div>Screenshot comparison against original</div></div><div><div><strong>Manual A11y Testing</strong></div><div>Screen reader + keyboard testing on sample pages</div></div><div><div><strong>Stakeholder Demo</strong></div><div>Show migrated pages to VA stakeholders</div></div><div><div><strong>Retrospective</strong></div><div>Process improvement, velocity tracking</div></div></div><h3 id="definition-of-done-per-page">Definition of Done (Per Page)</h3><ul>
+<li>Content migrated accurately (text, links, images, metadata)</li>
+<li>Visual fidelity matches original (responsive at 3 breakpoints)</li>
+<li>Passes axe-core with zero violations</li>
+<li>Passes manual keyboard navigation</li>
+<li>Passes screen reader testing (JAWS or NVDA)</li>
+<li>Color contrast verified at 4.5:1 minimum</li>
+<li>Performance: Lighthouse score >= 90</li>
+<li>Stakeholder approved</li>
+<li>Preview and live URLs verified</li>
+</ul></div>
+<div><h2 id="roi--value-analysis">7. ROI &#x26; Value Analysis</h2><h3 id="current-state-pain-points-vagov">Current State Pain Points (VA.gov)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="issue"><div><div><strong>React-based SSR complexity</strong></div><div>Heavy build pipeline, slow deployments, developer bottleneck</div></div><div><div><strong>Page weight</strong></div><div>Homepage loads ~2-3MB with JS bundles, analytics, widgets</div></div><div><div><strong>Content velocity</strong></div><div>Authors cannot make content changes without developer involvement in many areas</div></div><div><div><strong>Infrastructure cost</strong></div><div>Complex hosting, CDN, and serverless function infrastructure</div></div><div><div><strong>Performance scores</strong></div><div>Current Lighthouse performance scores are moderate due to JS-heavy architecture</div></div></div><h3 id="edge-delivery-services-value-proposition">Edge Delivery Services Value Proposition</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="benefit"><div><div><strong>Lighthouse 100</strong></div><div>EDS consistently achieves perfect Lighthouse scores out of the box</div></div><div><div><strong>Content velocity</strong></div><div>Authors edit in Google Docs/SharePoint, publish in seconds, no developer needed</div></div><div><div><strong>Reduced JS payload</strong></div><div>Vanilla JS blocks vs. React framework = dramatically smaller page weight</div></div><div><div><strong>Edge-delivered</strong></div><div>Global CDN with edge-side includes, sub-second TTFB</div></div><div><div><strong>Lower infrastructure cost</strong></div><div>No build servers, no SSR infrastructure, no complex deployment pipeline</div></div><div><div><strong>Simplified developer experience</strong></div><div>Plain HTML/CSS/JS blocks, no framework lock-in</div></div></div><h3 id="quantifiable-value-areas">Quantifiable Value Areas</h3><p><strong>Performance improvement:</strong></p><ul>
+<li>Current estimated LCP: 2-4 seconds (React hydration + async widget loading)</li>
+<li>EDS target LCP: &#x3C;1 second</li>
+<li>Impact: Every 100ms improvement in page load correlates with measurable improvements in task completion for government services</li>
+</ul><p><strong>Content authoring efficiency:</strong></p><ul>
+<li>Current: Content changes require developer PR, review, and deploy cycle</li>
+<li>EDS: Author edits in document, preview, publish (minutes, not days)</li>
+<li>Impact: Faster updates for benefits information, emergency communications, policy changes</li>
+</ul><p><strong>Infrastructure simplification:</strong></p><ul>
+<li>Eliminates React build pipeline complexity</li>
+<li>Reduces deployment failure risk</li>
+<li>Simplifies content delivery architecture</li>
+<li>Potential for significant hosting cost reduction</li>
+</ul><p><strong>Accessibility:</strong></p><ul>
+<li>EDS semantic HTML-first approach naturally produces more accessible markup</li>
+<li>Fewer JS-dependent accessibility patterns to maintain</li>
+<li>Simpler testing surface area</li>
+</ul><h3 id="risk-factors-affecting-roi">Risk Factors Affecting ROI</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="risk"><div><div><strong>Application pages cannot migrate</strong></div><div>~40-50 React apps remain separate</div><div>Embed strategy, gradual rewrite</div></div><div><div><strong>VA stakeholder approval cycles</strong></div><div>Government approval adds overhead</div><div>Dedicated liaison, early demos</div></div><div><div><strong>VADS design system gap</strong></div><div>VA React component library will not transfer 1:1</div><div>CSS-only recreation of visual design</div></div><div><div><strong>Scale of facility pages</strong></div><div>~3,500+ pages to migrate</div><div>Bulk scripting, templated approach</div></div><div><div><strong>Accessibility re-certification</strong></div><div>Every page needs 508 re-validation</div><div>Automated + sampling strategy</div></div><div><div><strong>Content freeze coordination</strong></div><div>Cannot have two systems serving same content</div><div>Wave-based cutover with redirects</div></div></div></div>
+<div><h2 id="migration-sizing-summary">8. Migration Sizing Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="dimension"><div><div><strong>Total pages in scope</strong></div><div>~5,000-7,000 (content pages, excluding apps)</div></div><div><div><strong>Pages out of scope (apps)</strong></div><div>~40-50 distinct applications</div></div><div><div><strong>Unique templates</strong></div><div>7</div></div><div><div><strong>Custom blocks needed</strong></div><div>~20-25 blocks, ~40-50 variants</div></div><div><div><strong>Waves</strong></div><div>6 (Foundation, Hubs, Detail, Resources, Facilities, Apps)</div></div><div><div><strong>Core team size</strong></div><div>15-19 people</div></div><div><div><strong>Highest risk</strong></div><div>Accessibility compliance, facility page scale, application integration</div></div><div><div><strong>Highest value</strong></div><div>Performance (LCP), content velocity, infrastructure simplification</div></div></div></div>
+<div><h2 id="key-recommendations">9. Key Recommendations</h2><ol>
+<li>
+<p><strong>Start with a pilot hub</strong> — Migrate one complete benefit hub (e.g., Education) end-to-end before committing to the full site. This validates the approach, surfaces issues early, and gives stakeholders something concrete to evaluate.</p>
+</li>
+<li>
+<p><strong>Invest heavily in accessibility from day one</strong> — Do not bolt it on later. Every block should be built and tested for 508/WCAG 2.2 AA before being used in content. The legal and reputational risk for a federal site is too high.</p>
+</li>
+<li>
+<p><strong>Build bulk migration tooling early</strong> — With ~3,500+ facility pages following consistent templates, manual migration is not viable. Invest in import scripts during Wave 0-1 that can process facility pages at scale.</p>
+</li>
+<li>
+<p><strong>Accept a hybrid architecture</strong> — The React-based forms and tools (claim status, facility locator, GI Bill comparison tool) will likely remain as separate applications embedded within EDS pages. Plan for this from the start rather than trying to migrate everything.</p>
+</li>
+<li>
+<p><strong>Coordinate with VA Design System (VADS) team</strong> — The VADS team maintains the React component library. Close coordination ensures the EDS CSS blocks accurately represent the approved design system without introducing visual inconsistencies.</p>
+</li>
+<li>
+<p><strong>Plan content freeze windows per wave</strong> — Each wave needs a content freeze period during cutover to prevent content drift between old and new systems.</p>
+</li>
+</ol></div>
+<div><p><em>Assessment generated from live scan of VA.gov on February 26, 2026.</em></p></div>

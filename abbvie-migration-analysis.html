@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbbVie.com Migration Analysis</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      font-size: 10pt;
+    }
+    h1 {
+      font-size: 24pt;
+      color: #071d49;
+      margin-bottom: 4px;
+      border-bottom: 3px solid #071d49;
+      padding-bottom: 10px;
+    }
+    h2 {
+      font-size: 16pt;
+      color: #071d49;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 12pt;
+      color: #444;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p { margin-bottom: 10px; }
+    .subtitle {
+      font-size: 12pt;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px 0;
+      font-size: 9pt;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background: #071d49;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) { background: #f8f9fa; }
+    .highlight-box {
+      background: linear-gradient(135deg, #071d49 0%, #1e3a6e 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+    }
+    .highlight-box h3 {
+      color: white;
+      margin-top: 0;
+    }
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .metric-item {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 12px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
+    }
+    .metric-item .value {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #071d49;
+    }
+    .metric-item .label {
+      font-size: 8pt;
+      color: #666;
+    }
+    .savings {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .roi-box {
+      background: #d4edda;
+      border: 2px solid #28a745;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .roi-box .big-number {
+      font-size: 32pt;
+      font-weight: bold;
+      color: #28a745;
+    }
+    .roi-box .label {
+      font-size: 10pt;
+      color: #155724;
+    }
+    .phase-header {
+      background: #071d49;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin: 20px 0 12px 0;
+    }
+    ul { margin: 8px 0 8px 20px; }
+    li { margin-bottom: 4px; }
+    .page-break { page-break-before: always; }
+    strong { color: #1a1a1a; }
+    .footer {
+      margin-top: 30px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+      font-size: 8pt;
+      color: #666;
+      font-style: italic;
+    }
+    .ecosystem-card {
+      display: inline-block;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 6px;
+      min-width: 140px;
+      text-align: center;
+    }
+    .ecosystem-card .name {
+      font-weight: bold;
+      color: #071d49;
+    }
+    .ecosystem-card .pages {
+      font-size: 16pt;
+      color: #28a745;
+      font-weight: bold;
+    }
+    .timeline-box {
+      background: #f8f9fa;
+      border-left: 4px solid #071d49;
+      padding: 12px 16px;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>AbbVie.com Corporate Migration Analysis</h1>
+<p class="subtitle">AEM Classic to Adobe Edge Delivery Services (EDS)</p>
+
+<div class="highlight-box">
+  <h3>Executive Summary</h3>
+  <p>AbbVie.com represents a complex enterprise pharmaceutical digital ecosystem spanning multiple platforms, languages, and brand properties. This analysis covers the corporate site migration opportunity with <strong>estimated annual savings of $2-4 million</strong> and significant performance improvements.</p>
+</div>
+
+<h3>Key Benefits at a Glance</h3>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Current State</th>
+    <th>Target (EDS)</th>
+    <th>Improvement</th>
+  </tr>
+  <tr>
+    <td><strong>Page Load Time</strong></td>
+    <td>3-5 seconds</td>
+    <td>&lt;0.5 seconds</td>
+    <td class="savings">85%+ faster</td>
+  </tr>
+  <tr>
+    <td><strong>Core Web Vitals</strong></td>
+    <td>Poor/Needs Improvement</td>
+    <td>Good (all green)</td>
+    <td class="savings">Significant</td>
+  </tr>
+  <tr>
+    <td><strong>JavaScript Payload</strong></td>
+    <td>40-70+ scripts/page</td>
+    <td>&lt;10 scripts</td>
+    <td class="savings">85% reduction</td>
+  </tr>
+  <tr>
+    <td><strong>Annual Platform Cost</strong></td>
+    <td>$3-5M</td>
+    <td>$500K-1M</td>
+    <td class="savings">70-85% savings</td>
+  </tr>
+  <tr>
+    <td><strong>Content Velocity</strong></td>
+    <td>Days/weeks</td>
+    <td>Minutes/hours</td>
+    <td class="savings">10x faster</td>
+  </tr>
+</table>
+
+<h2>AbbVie Digital Ecosystem</h2>
+
+<p>AbbVie operates a complex multi-site digital ecosystem:</p>
+
+<div style="margin: 16px 0;">
+  <div class="ecosystem-card">
+    <div class="name">abbvie.com</div>
+    <div class="pages">300-400</div>
+    <div style="font-size: 8pt; color: #666;">Corporate (30+ langs)</div>
+  </div>
+  <div class="ecosystem-card">
+    <div class="name">news.abbvie.com</div>
+    <div class="pages">2,500+</div>
+    <div style="font-size: 8pt; color: #666;">Press Releases</div>
+  </div>
+  <div class="ecosystem-card">
+    <div class="name">investors.abbvie.com</div>
+    <div class="pages">50-80</div>
+    <div style="font-size: 8pt; color: #666;">Investor Relations</div>
+  </div>
+  <div class="ecosystem-card">
+    <div class="name">careers.abbvie.com</div>
+    <div class="pages">100+/lang</div>
+    <div style="font-size: 8pt; color: #666;">15 Languages</div>
+  </div>
+  <div class="ecosystem-card">
+    <div class="name">Brand Sites</div>
+    <div class="pages">1,000+</div>
+    <div style="font-size: 8pt; color: #666;">10+ Properties</div>
+  </div>
+</div>
+
+<p><strong>Total Estimated Scope: 5,000-8,000+ pages across ecosystem</strong></p>
+
+<h3>Technology Stack (Confirmed from Analysis)</h3>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>News Site (Measured)</th>
+    <th>Corporate (Estimated)</th>
+  </tr>
+  <tr>
+    <td>JavaScript Files</td>
+    <td>43 per page</td>
+    <td>50-70 per page</td>
+  </tr>
+  <tr>
+    <td>Stylesheets</td>
+    <td>18 per page</td>
+    <td>15-25 per page</td>
+  </tr>
+  <tr>
+    <td>Total Resources</td>
+    <td>128 per page</td>
+    <td>150+ per page</td>
+  </tr>
+  <tr>
+    <td>Transfer Size</td>
+    <td>1.9MB</td>
+    <td>2-3MB</td>
+  </tr>
+  <tr>
+    <td>Platform</td>
+    <td>Custom CMS (clientlibs)</td>
+    <td>AEM Classic</td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>Corporate Site Structure</h2>
+
+<table>
+  <tr>
+    <th>Section</th>
+    <th>Subsections</th>
+    <th>Est. Pages</th>
+  </tr>
+  <tr>
+    <td><strong>Who We Are</strong></td>
+    <td>Key Facts, Leadership, History, Culture</td>
+    <td>40-50</td>
+  </tr>
+  <tr>
+    <td><strong>Science</strong></td>
+    <td>Pipeline, Therapeutic Areas, R&D Approach</td>
+    <td>60-80</td>
+  </tr>
+  <tr>
+    <td><strong>Patients</strong></td>
+    <td>Patient Assistance, Medical Info, Resources</td>
+    <td>50-70</td>
+  </tr>
+  <tr>
+    <td><strong>Join Us</strong></td>
+    <td>Life at AbbVie, Benefits, Locations</td>
+    <td>40-60</td>
+  </tr>
+  <tr>
+    <td><strong>Sustainability</strong></td>
+    <td>ESG, Community, Environment</td>
+    <td>30-40</td>
+  </tr>
+  <tr>
+    <td><strong>Newsroom</strong></td>
+    <td>News, Media Resources, Press Kits</td>
+    <td>50+</td>
+  </tr>
+  <tr>
+    <td><strong>Global Sites</strong></td>
+    <td>30+ country variations</td>
+    <td>100-200/country</td>
+  </tr>
+  <tr>
+    <td><strong>Utility</strong></td>
+    <td>Legal, Privacy, Contact, Sitemap</td>
+    <td>20-30</td>
+  </tr>
+  <tr style="background: #e8f4fd;">
+    <td><strong>Total (English)</strong></td>
+    <td></td>
+    <td><strong>350-450 pages</strong></td>
+  </tr>
+  <tr style="background: #d4edda;">
+    <td><strong>Total (Global)</strong></td>
+    <td></td>
+    <td><strong>4,000-8,000 pages</strong></td>
+  </tr>
+</table>
+
+<h2>Cost Analysis</h2>
+
+<h3>Current AEM Classic Costs (Enterprise Estimate)</h3>
+
+<table>
+  <tr>
+    <th>Cost Category</th>
+    <th>Annual Low</th>
+    <th>Annual High</th>
+  </tr>
+  <tr>
+    <td>AEM License (Enterprise)</td>
+    <td>$800,000</td>
+    <td>$1,500,000</td>
+  </tr>
+  <tr>
+    <td>Infrastructure (AMS/Cloud)</td>
+    <td>$500,000</td>
+    <td>$1,000,000</td>
+  </tr>
+  <tr>
+    <td>Development/Maintenance</td>
+    <td>$800,000</td>
+    <td>$1,200,000</td>
+  </tr>
+  <tr>
+    <td>Content Operations (global)</td>
+    <td>$400,000</td>
+    <td>$600,000</td>
+  </tr>
+  <tr>
+    <td>Third-party Integrations</td>
+    <td>$200,000</td>
+    <td>$400,000</td>
+  </tr>
+  <tr>
+    <td>Security/Compliance</td>
+    <td>$150,000</td>
+    <td>$300,000</td>
+  </tr>
+  <tr style="background: #fff3cd; font-weight: bold;">
+    <td>Total Annual Cost</td>
+    <td>$2,850,000</td>
+    <td>$5,000,000</td>
+  </tr>
+</table>
+
+<h3>EDS Costs (Estimated Annual)</h3>
+
+<table>
+  <tr>
+    <th>Cost Category</th>
+    <th>Annual Low</th>
+    <th>Annual High</th>
+  </tr>
+  <tr>
+    <td>EDS License*</td>
+    <td>$0</td>
+    <td>$100,000</td>
+  </tr>
+  <tr>
+    <td>Infrastructure (CDN)</td>
+    <td>$50,000</td>
+    <td>$150,000</td>
+  </tr>
+  <tr>
+    <td>Development/Maintenance</td>
+    <td>$200,000</td>
+    <td>$400,000</td>
+  </tr>
+  <tr>
+    <td>Content Operations</td>
+    <td>$100,000</td>
+    <td>$200,000</td>
+  </tr>
+  <tr>
+    <td>Integrations</td>
+    <td>$50,000</td>
+    <td>$100,000</td>
+  </tr>
+  <tr style="background: #d4edda; font-weight: bold;">
+    <td>Total Annual Cost</td>
+    <td>$400,000</td>
+    <td>$950,000</td>
+  </tr>
+</table>
+
+<p><em>*EDS may be included in existing Adobe Enterprise agreement</em></p>
+
+<div class="roi-box">
+  <div class="label">Annual Savings</div>
+  <div class="big-number">$2M - $4M</div>
+  <div class="label">65-80% cost reduction</div>
+</div>
+
+<div class="page-break"></div>
+
+<h2>Migration Approach</h2>
+
+<h3>Phased Rollout (Recommended)</h3>
+
+<table>
+  <tr>
+    <th>Phase</th>
+    <th>Scope</th>
+    <th>Pages</th>
+    <th>Duration</th>
+  </tr>
+  <tr style="background: #e8f4fd;">
+    <td><strong>Phase 1</strong></td>
+    <td>Corporate Site (English)</td>
+    <td>350-450</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr>
+    <td>Phase 2</td>
+    <td>News Center</td>
+    <td>100 templates</td>
+    <td>12 weeks</td>
+  </tr>
+  <tr>
+    <td>Phase 3</td>
+    <td>Global Sites (Top 10)</td>
+    <td>2,000-3,000</td>
+    <td>36 weeks</td>
+  </tr>
+  <tr>
+    <td>Phase 4</td>
+    <td>Remaining Global</td>
+    <td>2,000-4,000</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr style="background: #f8f9fa; font-weight: bold;">
+    <td colspan="2">Total Migration</td>
+    <td>5,000-8,000</td>
+    <td>18-24 months</td>
+  </tr>
+</table>
+
+<h2>Phase 1: Corporate Site (This Analysis)</h2>
+
+<h3>Resource Requirements</h3>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>FTE</th>
+    <th>Duration</th>
+  </tr>
+  <tr>
+    <td>Program Manager</td>
+    <td>1.0</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr>
+    <td>Technical Architect</td>
+    <td>1.0</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr>
+    <td>EDS Lead Developer</td>
+    <td>1.0</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr>
+    <td>EDS Senior Developers</td>
+    <td>2.0</td>
+    <td>20 weeks</td>
+  </tr>
+  <tr>
+    <td>EDS Developers</td>
+    <td>2.0</td>
+    <td>16 weeks</td>
+  </tr>
+  <tr>
+    <td>Content Strategist</td>
+    <td>1.0</td>
+    <td>24 weeks</td>
+  </tr>
+  <tr>
+    <td>Content Authors</td>
+    <td>3.0</td>
+    <td>16 weeks</td>
+  </tr>
+  <tr>
+    <td>QA Lead + Engineers</td>
+    <td>3.0</td>
+    <td>12-20 weeks</td>
+  </tr>
+  <tr>
+    <td>UX Designer</td>
+    <td>0.5</td>
+    <td>12 weeks</td>
+  </tr>
+  <tr style="background: #e8f4fd;">
+    <td><strong>Average Team Size</strong></td>
+    <td colspan="2"><strong>7.5 FTE over 24 weeks</strong></td>
+  </tr>
+</table>
+
+<h3>Sprint Plan (24 Weeks / 12 Sprints)</h3>
+
+<div class="phase-header">Phase 1: Foundation (Sprints 1-3, Weeks 1-6)</div>
+<table>
+  <tr><th>Sprint</th><th>Focus</th><th>Deliverables</th></tr>
+  <tr><td>1</td><td>Project Setup</td><td>Repo, design tokens, styles.css</td></tr>
+  <tr><td>2</td><td>Core Blocks</td><td>Header, footer, navigation</td></tr>
+  <tr><td>3</td><td>Global Components</td><td>ISI, cookie consent, search</td></tr>
+</table>
+
+<div class="phase-header">Phase 2: Block Library (Sprints 4-6, Weeks 7-12)</div>
+<table>
+  <tr><th>Sprint</th><th>Focus</th><th>Deliverables</th></tr>
+  <tr><td>4</td><td>Hero & Cards</td><td>Hero variants, card components</td></tr>
+  <tr><td>5</td><td>Content Blocks</td><td>Accordions, tabs, columns, timeline</td></tr>
+  <tr><td>6</td><td>Interactive</td><td>Forms, maps, video, carousel</td></tr>
+</table>
+
+<div class="phase-header">Phase 3: Content Migration (Sprints 7-10, Weeks 13-20)</div>
+<table>
+  <tr><th>Sprint</th><th>Focus</th><th>Pages</th></tr>
+  <tr><td>7</td><td>Homepage + Who We Are</td><td>~50</td></tr>
+  <tr><td>8</td><td>Science + Patients</td><td>~120</td></tr>
+  <tr><td>9</td><td>Join Us + Sustainability</td><td>~80</td></tr>
+  <tr><td>10</td><td>Newsroom + Utility</td><td>~100</td></tr>
+</table>
+
+<div class="phase-header">Phase 4: Testing & Launch (Sprints 11-12, Weeks 21-24)</div>
+<table>
+  <tr><th>Sprint</th><th>Focus</th><th>Deliverables</th></tr>
+  <tr><td>11</td><td>QA & Compliance</td><td>Testing, accessibility, MLR review</td></tr>
+  <tr><td>12</td><td>Launch</td><td>Soft launch, full launch, training</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<h2>Budget Summary</h2>
+
+<h3>Labor Costs</h3>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Rate/Hr</th>
+    <th>Hours</th>
+    <th>Total</th>
+  </tr>
+  <tr><td>Program Manager</td><td>$200</td><td>960</td><td>$192,000</td></tr>
+  <tr><td>Technical Architect</td><td>$200</td><td>960</td><td>$192,000</td></tr>
+  <tr><td>EDS Lead Developer</td><td>$175</td><td>960</td><td>$168,000</td></tr>
+  <tr><td>EDS Senior Developers (×2)</td><td>$150</td><td>1,600</td><td>$240,000</td></tr>
+  <tr><td>EDS Developers (×2)</td><td>$125</td><td>1,280</td><td>$160,000</td></tr>
+  <tr><td>Content Strategist</td><td>$125</td><td>960</td><td>$120,000</td></tr>
+  <tr><td>Content Authors (×3)</td><td>$75</td><td>1,920</td><td>$144,000</td></tr>
+  <tr><td>QA Lead</td><td>$150</td><td>800</td><td>$120,000</td></tr>
+  <tr><td>QA Engineers (×2)</td><td>$100</td><td>960</td><td>$96,000</td></tr>
+  <tr><td>UX Designer</td><td>$150</td><td>240</td><td>$36,000</td></tr>
+  <tr><td>Extended Team</td><td>Various</td><td>400</td><td>$60,000</td></tr>
+  <tr style="background: #e8f4fd; font-weight: bold;">
+    <td>Labor Subtotal</td><td></td><td>10,040</td><td>$1,528,000</td>
+  </tr>
+</table>
+
+<h3>Other Costs</h3>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Cost</th>
+  </tr>
+  <tr><td>Contingency (20%)</td><td>$305,600</td></tr>
+  <tr><td>Tools & Licenses</td><td>$25,000</td></tr>
+  <tr><td>Testing Infrastructure</td><td>$15,000</td></tr>
+  <tr><td>Training & Documentation</td><td>$20,000</td></tr>
+  <tr><td>Travel & Meetings</td><td>$30,000</td></tr>
+  <tr style="background: #e8f4fd; font-weight: bold;">
+    <td>Other Subtotal</td><td>$395,600</td>
+  </tr>
+</table>
+
+<div class="roi-box" style="background: #071d49; border-color: #071d49;">
+  <div class="label" style="color: #a0c4ff;">Total Phase 1 Budget</div>
+  <div class="big-number" style="color: white;">$1,923,600</div>
+</div>
+
+<h2>5-Year ROI Analysis</h2>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>AEM Classic</th>
+    <th>EDS</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>Year 1</td>
+    <td>$4.0M</td>
+    <td>$2.7M*</td>
+    <td class="savings">$1.3M</td>
+  </tr>
+  <tr>
+    <td>Year 2</td>
+    <td>$4.0M</td>
+    <td>$800K</td>
+    <td class="savings">$3.2M</td>
+  </tr>
+  <tr>
+    <td>Year 3</td>
+    <td>$4.0M</td>
+    <td>$850K</td>
+    <td class="savings">$3.15M</td>
+  </tr>
+  <tr>
+    <td>Year 4</td>
+    <td>$4.0M</td>
+    <td>$900K</td>
+    <td class="savings">$3.1M</td>
+  </tr>
+  <tr>
+    <td>Year 5</td>
+    <td>$4.0M</td>
+    <td>$950K</td>
+    <td class="savings">$3.05M</td>
+  </tr>
+  <tr style="background: #d4edda; font-weight: bold;">
+    <td>5-Year Total</td>
+    <td>$20.0M</td>
+    <td>$6.2M</td>
+    <td class="savings">$13.8M</td>
+  </tr>
+</table>
+
+<p><em>*Year 1 includes $1.9M migration cost + operating</em></p>
+
+<div class="metric-row">
+  <div class="metric-item">
+    <div class="value">$1.9M</div>
+    <div class="label">Migration Investment</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">14-18</div>
+    <div class="label">Months Payback</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">618%</div>
+    <div class="label">5-Year ROI</div>
+  </div>
+  <div class="metric-item">
+    <div class="value">$13.8M</div>
+    <div class="label">5-Year Net Savings</div>
+  </div>
+</div>
+
+<h2>Recommendation</h2>
+
+<div class="highlight-box">
+  <h3>Proceed with Phase 1 Migration</h3>
+  <p>The 24-week Phase 1 migration with a $1.9M investment will deliver:</p>
+  <ul style="margin-left: 20px; margin-top: 12px;">
+    <li><strong>85%+ faster</strong> page load times</li>
+    <li><strong>$13.8M</strong> savings over 5 years</li>
+    <li><strong>10x faster</strong> content velocity</li>
+    <li>Foundation for <strong>global rollout</strong></li>
+    <li>Proven patterns for <strong>brand site migrations</strong></li>
+  </ul>
+  <p style="margin-top: 16px;"><strong>Consider pilot migration</strong> of smaller brand property for validation before full corporate site.</p>
+</div>
+
+<h3>Success Metrics</h3>
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Current</th>
+    <th>Target</th>
+  </tr>
+  <tr><td>Page Load Time</td><td>4-5s</td><td>&lt;0.5s</td></tr>
+  <tr><td>Lighthouse Performance</td><td>40-50</td><td>95+</td></tr>
+  <tr><td>Content Publish Time</td><td>2-4 hours</td><td>&lt;30 min</td></tr>
+  <tr><td>Infrastructure Cost</td><td>$1.5M/yr</td><td>&lt;$200K/yr</td></tr>
+  <tr><td>Uptime</td><td>99.5%</td><td>99.99%</td></tr>
+</table>
+
+<div class="footer">
+  <p>Analysis prepared for migration planning purposes. Cost estimates based on enterprise pharmaceutical industry benchmarks and should be validated with AbbVie's specific contractual arrangements.</p>
+  <p>Generated: January 2026</p>
+</div>
+
+</body>
+</html>

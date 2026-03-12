@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbbVie.com EDS Migration Timeline</title>
+  <style>
+    :root {
+      --color-primary: #071d49;
+      --color-accent: #0d6efd;
+      --color-success: #198754;
+      --color-warning: #fd7e14;
+      --color-light-bg: #f8f9fa;
+      --color-border: #dee2e6;
+      --color-text: #212529;
+      --color-text-muted: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--color-primary);
+      border-bottom: 3px solid var(--color-primary);
+      padding-bottom: 12px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: var(--color-primary);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    h3 {
+      font-size: 17px;
+      color: var(--color-accent);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    h4 {
+      font-size: 15px;
+      color: var(--color-text);
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: var(--color-primary);
+      color: #fff;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--color-light-bg);
+    }
+
+    tbody tr:hover {
+      background: #e8f0fe;
+    }
+
+    .highlight-row td {
+      background: #d4edda !important;
+      font-weight: 600;
+    }
+
+    .phase-banner {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 6px;
+      margin-top: 32px;
+      margin-bottom: 20px;
+    }
+
+    .phase-banner h2 {
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-size: 20px;
+    }
+
+    .month-header {
+      background: linear-gradient(135deg, var(--color-accent), #4a9eff);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .milestone-summary {
+      background: var(--color-light-bg);
+      border: 2px solid var(--color-primary);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+
+    .milestone-summary table {
+      margin-bottom: 0;
+    }
+
+    .milestone-summary thead th {
+      background: var(--color-primary);
+    }
+
+    .assumptions {
+      margin-top: 24px;
+    }
+
+    .assumptions ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .assumptions li {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .risk-table thead th {
+      background: #dc3545;
+    }
+
+    strong {
+      color: var(--color-primary);
+    }
+
+    .go-live-badge {
+      display: inline-block;
+      background: var(--color-success);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    @media print {
+      body {
+        padding: 20px;
+        font-size: 12px;
+      }
+      h1 { font-size: 22px; }
+      h2 { font-size: 18px; }
+      h3 { font-size: 15px; }
+      table { font-size: 11px; }
+      .phase-banner { padding: 10px 14px; }
+      .month-header { padding: 8px 12px; font-size: 14px; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AbbVie.com EDS Migration Timeline</h1>
+  <p class="subtitle">Adobe Edge Delivery Services Migration Plan &mdash; 7-Month Roadmap</p>
+
+  <!-- PHASE 1 -->
+  <div class="phase-banner">
+    <h2>Phase 1: Months 1&ndash;4 &mdash; Boilerplate + MVP (abbvie.com)</h2>
+  </div>
+
+  <!-- Month 1 -->
+  <div class="month-header">Month 1 &mdash; Foundation &amp; Discovery</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Discovery &amp; Audit</strong></td>
+        <td>Full site audit of abbvie.com; page template inventory; content modeling; identify MVP page set</td>
+      </tr>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Boilerplate Setup</strong></td>
+        <td>Initialize EDS project repo; configure <code>fstab.yaml</code>, GitHub integration, aem.page/aem.live domains</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Design System Extraction</strong></td>
+        <td>Extract design tokens (colors, typography, spacing) from abbvie.com; map to CSS custom properties in <code>styles.css</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Navigation Architecture</strong></td>
+        <td>Migrate header/footer navigation structure; build <code>nav.md</code>; validate responsive behavior</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Month 2 -->
+  <div class="month-header">Month 2 &mdash; Core Block Development &amp; Content Migration Start</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Core Block Development</strong></td>
+        <td>Develop priority blocks: Hero, Cards, Columns, Tabs, Accordion, CTA banners, Media blocks</td>
+      </tr>
+      <tr>
+        <td>2&ndash;3</td>
+        <td><strong>Shared Components</strong></td>
+        <td>Build reusable patterns: buttons, icons, forms, embed handlers, social links</td>
+      </tr>
+      <tr>
+        <td>3&ndash;4</td>
+        <td><strong>MVP Page Migration Begins</strong></td>
+        <td>Start migrating MVP pages: Homepage, key landing pages, About, Careers, Contact</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Authoring Workflow Setup</strong></td>
+        <td>Configure SharePoint/Google Drive authoring; train initial content authors; establish content review process</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Month 3 -->
+  <div class="month-header">Month 3 &mdash; MVP Go-Live</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Remaining MVP Pages</strong></td>
+        <td>Complete migration of all MVP page set</td>
+      </tr>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>QA &amp; Visual Regression</strong></td>
+        <td>Side-by-side comparison of migrated vs. original pages; fix styling gaps; cross-browser/device testing</td>
+      </tr>
+      <tr>
+        <td>2&ndash;3</td>
+        <td><strong>Performance &amp; SEO Validation</strong></td>
+        <td>Lighthouse audits (target 100); validate metadata, OG tags, canonical URLs, redirects, sitemap.xml</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Go-Live Prep</strong></td>
+        <td>DNS planning; CDN configuration; redirect mapping from old URLs; rollback plan</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>4</td>
+        <td><span class="go-live-badge">GO-LIVE</span> <strong>MVP Go-Live</strong></td>
+        <td>Launch abbvie.com MVP on Edge Delivery Services</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Month 4 -->
+  <div class="month-header">Month 4 &mdash; Boilerplate Completion &amp; Stabilization</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Post-Launch Monitoring</strong></td>
+        <td>Monitor Core Web Vitals; fix any production issues; validate analytics/tracking</td>
+      </tr>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Secondary Page Migration</strong></td>
+        <td>Migrate remaining non-MVP pages (deeper content pages, resource libraries, news/media pages)</td>
+      </tr>
+      <tr>
+        <td>2&ndash;3</td>
+        <td><strong>Block Library Finalization</strong></td>
+        <td>Complete any remaining block variants; document all blocks in Sidekick library; finalize <code>library.json</code></td>
+      </tr>
+      <tr>
+        <td>3&ndash;4</td>
+        <td><strong>Boilerplate Complete</strong></td>
+        <td>Finalize boilerplate with all blocks, styles, scripts; create documentation and authoring guides for Phase 2 teams</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Phase 2 Readiness</strong></td>
+        <td>Prepare localization framework; document patterns for regional rollout; create migration playbook</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PHASE 2 -->
+  <div class="phase-banner page-break">
+    <h2>Phase 2: Months 5&ndash;7 &mdash; Regional, Language &amp; Specialty Sites</h2>
+  </div>
+
+  <!-- Month 5 -->
+  <div class="month-header">Month 5 &mdash; Language &amp; Regional Sites (Batch 1)</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Localization Framework</strong></td>
+        <td>Set up multi-language folder structure; configure locale-specific <code>nav.md</code> files; establish translation workflow</td>
+      </tr>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Regional Site Migration (Batch 1)</strong></td>
+        <td>Migrate highest-traffic regional sites (determine priority by analytics); adapt design tokens for regional branding if needed</td>
+      </tr>
+      <tr>
+        <td>3&ndash;4</td>
+        <td><strong>Language Site Migration (Batch 1)</strong></td>
+        <td>Migrate primary language variants; validate RTL support if applicable; test locale-specific content</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Month 6 -->
+  <div class="month-header">Month 6 &mdash; Language &amp; Regional Sites (Batch 2) + Privacy &amp; HS</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>Remaining Regional &amp; Language Sites</strong></td>
+        <td>Complete all remaining regional and language site migrations</td>
+      </tr>
+      <tr>
+        <td>2&ndash;3</td>
+        <td><strong>Privacy Site</strong></td>
+        <td>Migrate Privacy site; ensure compliance-specific blocks (cookie consent, data request forms); legal review</td>
+      </tr>
+      <tr>
+        <td>3&ndash;4</td>
+        <td><strong>HS (Health Sciences) Site</strong></td>
+        <td>Migrate HS site; develop any specialty blocks unique to HS; validate medical/regulatory content rendering</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Month 7 -->
+  <div class="month-header">Month 7 &mdash; NIC, PMIS &amp; Final QA</div>
+  <table>
+    <thead>
+      <tr><th style="width:15%">Week</th><th style="width:28%">Milestone</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1&ndash;2</td>
+        <td><strong>NIC Site</strong></td>
+        <td>Migrate NIC site; build any NIC-specific block variants; validate data presentation and compliance requirements</td>
+      </tr>
+      <tr>
+        <td>2&ndash;3</td>
+        <td><strong>PMIS Site</strong></td>
+        <td>Migrate PMIS site; implement specialty workflows and content structures unique to PMIS</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Cross-Site QA</strong></td>
+        <td>Full regression across all migrated sites; validate shared navigation, consistent branding, cross-site linking</td>
+      </tr>
+      <tr class="highlight-row">
+        <td>4</td>
+        <td><span class="go-live-badge">GO-LIVE</span> <strong>Phase 2 Go-Live</strong></td>
+        <td>Launch all regional, language, and specialty sites; monitor and stabilize</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Key Milestones Summary -->
+  <div class="milestone-summary">
+    <h3 style="margin-top:0; color: var(--color-primary);">Key Milestones Summary</h3>
+    <table>
+      <thead>
+        <tr><th>Milestone</th><th style="width:30%">Target</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Boilerplate initialized</td><td>End of Month 1, Week 2</td></tr>
+        <tr><td>Design system migrated</td><td>End of Month 1</td></tr>
+        <tr><td>Core blocks complete</td><td>End of Month 2</td></tr>
+        <tr class="highlight-row"><td>abbvie.com MVP Go-Live</td><td>End of Month 3</td></tr>
+        <tr class="highlight-row"><td>Boilerplate Complete</td><td>End of Month 4</td></tr>
+        <tr><td>Localization framework ready</td><td>Month 5, Week 1</td></tr>
+        <tr><td>Regional/Language Batch 1 live</td><td>End of Month 5</td></tr>
+        <tr><td>Privacy + HS sites live</td><td>End of Month 6</td></tr>
+        <tr class="highlight-row"><td>All sites live (NIC, PMIS, remaining)</td><td>End of Month 7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Assumptions -->
+  <div class="assumptions page-break">
+    <h2>Assumptions &amp; Dependencies</h2>
+    <ul>
+      <li><strong>Out of scope:</strong> Any sites not explicitly listed (regional, language, Privacy, HS, NIC, PMIS)</li>
+      <li><strong>Content authoring access:</strong> SharePoint or Google Drive configured by Month 1, Week 3</li>
+      <li><strong>Stakeholder reviews:</strong> Content/legal approvals don't exceed 1-week turnaround</li>
+      <li><strong>Design parity:</strong> Visual fidelity targets are "functionally equivalent" not pixel-perfect redesign</li>
+      <li><strong>Analytics/integrations:</strong> Third-party integrations (analytics, forms, CDN) are identified during Month 1 discovery</li>
+    </ul>
+
+    <h2>Risks to Monitor</h2>
+    <table class="risk-table">
+      <thead>
+        <tr><th>Risk</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MVP page set scope creep</td>
+          <td>Lock MVP page list by end of Month 1, Week 2</td>
+        </tr>
+        <tr>
+          <td>Complex integrations on abbvie.com (forms, gated content)</td>
+          <td>Identify in discovery; prototype in Month 2</td>
+        </tr>
+        <tr>
+          <td>Specialty sites (HS, NIC, PMIS) have unique compliance needs</td>
+          <td>Early discovery in Month 4 to de-risk Phase 2</td>
+        </tr>
+        <tr>
+          <td>Regional branding deviations from boilerplate</td>
+          <td>Define acceptable variance in Month 4 playbook</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

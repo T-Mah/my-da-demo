@@ -1,0 +1,86 @@
+Section,Page Name,URL Path,Template Type,Priority,Est. Complexity,Notes
+Homepage,Homepage,/,homepage,P0,High,Main landing page with carousel and featured content
+Who We Are,Who We Are Landing,/who-we-are,section-landing,P0,Medium,Section overview page
+Who We Are,Key Facts,/who-we-are/key-facts,content,P1,Low,Company statistics and facts
+Who We Are,Our History,/who-we-are/our-history,timeline,P1,Medium,Company timeline
+Who We Are,Our Culture,/who-we-are/our-culture,content,P1,Low,Culture overview
+Who We Are,Our Values,/who-we-are/our-values,content,P1,Low,Company values
+Who We Are,Leadership Overview,/who-we-are/leadership,listing,P0,Medium,Leadership team grid
+Who We Are,CEO Profile,/who-we-are/leadership/ceo,profile,P1,Low,Executive bio
+Who We Are,CFO Profile,/who-we-are/leadership/cfo,profile,P1,Low,Executive bio
+Who We Are,COO Profile,/who-we-are/leadership/coo,profile,P1,Low,Executive bio
+Who We Are,CMO Profile,/who-we-are/leadership/cmo,profile,P1,Low,Executive bio
+Who We Are,General Counsel Profile,/who-we-are/leadership/general-counsel,profile,P1,Low,Executive bio
+Who We Are,Board of Directors,/who-we-are/board-of-directors,listing,P1,Medium,Board member grid
+Who We Are,Awards & Recognition,/who-we-are/awards,content,P2,Low,Awards listing
+Who We Are,Our Locations,/who-we-are/locations,map,P2,Medium,Global office locations
+Science,Science Landing,/science,section-landing,P0,Medium,Science overview
+Science,Our Pipeline,/science/pipeline,interactive-table,P0,High,Drug pipeline visualization
+Science,Pipeline Detail - Drug A,/science/pipeline/drug-a,product-detail,P1,Medium,Individual pipeline drug
+Science,Pipeline Detail - Drug B,/science/pipeline/drug-b,product-detail,P1,Medium,Individual pipeline drug
+Science,Pipeline Detail - Drug C,/science/pipeline/drug-c,product-detail,P1,Medium,Individual pipeline drug
+Science,Therapeutic Areas Overview,/science/therapeutic-areas,listing,P0,Medium,TA landing page
+Science,Immunology,/science/therapeutic-areas/immunology,content,P1,Medium,TA detail page
+Science,Oncology,/science/therapeutic-areas/oncology,content,P1,Medium,TA detail page
+Science,Neuroscience,/science/therapeutic-areas/neuroscience,content,P1,Medium,TA detail page
+Science,Eye Care,/science/therapeutic-areas/eye-care,content,P1,Medium,TA detail page
+Science,Aesthetics,/science/therapeutic-areas/aesthetics,content,P1,Medium,TA detail page
+Science,Virology,/science/therapeutic-areas/virology,content,P1,Medium,TA detail page
+Science,R&D Approach,/science/research-development,content,P1,Medium,R&D methodology
+Science,Clinical Trials,/science/clinical-trials,interactive,P1,High,Trial finder integration
+Science,Publications,/science/publications,listing,P2,Medium,Scientific publications
+Science,Partnerships,/science/partnerships,content,P2,Low,Research partnerships
+Patients,Patients Landing,/patients,section-landing,P0,Medium,Patient resources overview
+Patients,Patient Assistance Overview,/patients/patient-assistance,content,P0,Medium,Assistance programs
+Patients,myAbbVie Assist,/patients/patient-assistance/myabbvie-assist,content,P1,Medium,Assistance program detail
+Patients,Copay Assistance,/patients/patient-assistance/copay,content,P1,Medium,Copay program
+Patients,Patient Support Programs,/patients/support-programs,listing,P1,Medium,Support program listing
+Patients,Medical Information,/patients/medical-information,content,P1,Medium,Medical info resources
+Patients,Product Resources,/patients/product-resources,listing,P1,Medium,Product resource downloads
+Patients,Safety Information,/patients/safety-information,content,P0,High,ISI and safety content
+Patients,Contact Medical Affairs,/patients/contact-medical,form,P2,Medium,Contact form
+Join Us,Join Us Landing,/join-us,section-landing,P0,Medium,Careers overview
+Join Us,Life at AbbVie,/join-us/life-at-abbvie,content,P1,Medium,Culture and benefits
+Join Us,Our Benefits,/join-us/benefits,content,P1,Medium,Benefits overview
+Join Us,Health Benefits,/join-us/benefits/health,content,P2,Low,Health benefits detail
+Join Us,Financial Benefits,/join-us/benefits/financial,content,P2,Low,Financial benefits detail
+Join Us,Work-Life Benefits,/join-us/benefits/work-life,content,P2,Low,Work-life balance
+Join Us,Diversity & Inclusion,/join-us/diversity-inclusion,content,P1,Medium,D&I initiatives
+Join Us,Employee Resource Groups,/join-us/employee-resource-groups,listing,P2,Low,ERG listing
+Join Us,Career Areas,/join-us/career-areas,listing,P1,Medium,Job category overview
+Join Us,Research & Development Careers,/join-us/career-areas/rd,content,P2,Low,R&D careers
+Join Us,Commercial Careers,/join-us/career-areas/commercial,content,P2,Low,Commercial careers
+Join Us,Operations Careers,/join-us/career-areas/operations,content,P2,Low,Operations careers
+Join Us,Corporate Careers,/join-us/career-areas/corporate,content,P2,Low,Corporate careers
+Join Us,Students & Early Career,/join-us/students,content,P1,Medium,Internships and early career
+Join Us,Search Jobs,/join-us/search-jobs,integration,P1,High,Job search integration
+Join Us,Locations,/join-us/locations,map,P2,Medium,Office locations
+Sustainability,Sustainability Landing,/sustainability,section-landing,P0,Medium,ESG overview
+Sustainability,ESG Report,/sustainability/esg-report,content,P1,Medium,Annual ESG report
+Sustainability,Environmental,/sustainability/environmental,content,P1,Medium,Environmental initiatives
+Sustainability,Social Impact,/sustainability/social-impact,content,P1,Medium,Social programs
+Sustainability,Community Giving,/sustainability/community-giving,content,P2,Low,Philanthropy
+Sustainability,Governance,/sustainability/governance,content,P1,Medium,Corporate governance
+Sustainability,Ethics & Compliance,/sustainability/ethics-compliance,content,P1,Medium,Ethics program
+Sustainability,Supplier Diversity,/sustainability/supplier-diversity,content,P2,Low,Supplier programs
+Sustainability,Health Equity,/sustainability/health-equity,content,P1,Medium,Health equity initiatives
+Newsroom,Newsroom Landing,/news,section-landing,P0,Medium,News center home
+Newsroom,Press Releases,/news/press-releases,listing,P0,High,Press release archive
+Newsroom,Press Release Template,/news/press-releases/[slug],article,P1,Medium,Individual press release (50+ pages)
+Newsroom,Media Resources,/news/media-resources,content,P1,Medium,Press kit and assets
+Newsroom,Company Logos,/news/media-resources/logos,content,P2,Low,Logo downloads
+Newsroom,Executive Photos,/news/media-resources/photos,content,P2,Low,Photo downloads
+Newsroom,Fact Sheets,/news/media-resources/fact-sheets,content,P2,Low,Company fact sheets
+Newsroom,Media Contacts,/news/media-contacts,content,P1,Low,PR contact information
+Newsroom,Events,/news/events,listing,P2,Medium,Upcoming events
+Newsroom,Multimedia Gallery,/news/multimedia,listing,P2,Medium,Video and image gallery
+Utility,Contact Us,/contact,form,P1,Medium,Main contact page
+Utility,Privacy Policy,/privacy,legal,P0,Low,Privacy policy
+Utility,Terms of Use,/terms,legal,P0,Low,Terms and conditions
+Utility,Cookie Policy,/cookies,legal,P1,Low,Cookie policy
+Utility,Accessibility,/accessibility,legal,P1,Low,Accessibility statement
+Utility,Sitemap,/sitemap,utility,P2,Low,HTML sitemap
+Utility,Search Results,/search,integration,P1,High,Search results page
+Utility,404 Error,/404,error,P1,Low,Error page
+Utility,Legal Notices,/legal,legal,P1,Low,Legal disclaimers
+Utility,Supplier Portal,/suppliers,content,P2,Medium,Supplier information
